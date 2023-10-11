@@ -1,12 +1,15 @@
 import React from "react";
 import styled from "styled-components";
 import {myTheme} from "../../styles/Theme.styled";
+import s from './sidebar.module.scss'
 
 export const Sidebar = () => {
     return (
         <StyledNav>
             <ul>
-                Lorem ipsum dolor sit
+                <li className={s.item}>1</li>
+                <li className={`${s.item} ${s.active}`}>2</li>
+                <li className={s.item}>3</li>
                 {/*{myTheme.state.navItems.map((el, ind) => {*/}
                 {/*    return <li key={ind}>*/}
                 {/*        <Link to={el[1]}>{el[0]}</Link>*/}
