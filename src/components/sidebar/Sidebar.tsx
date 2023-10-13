@@ -1,6 +1,6 @@
-import React from "react";
-import styled from "styled-components";
-import {myTheme} from "../../styles/Theme.styled";
+import React from 'react';
+import styled from 'styled-components';
+import {myTheme} from '../../styles/Theme.styled';
 import s from './sidebar.module.scss'
 
 export const Sidebar = () => {
@@ -30,7 +30,7 @@ const StyledNav = styled.nav`
   flex-shrink: 0;
   overflow: auto;
   scrollbar-width: none;
-
+  
   &::-webkit-scrollbar {
     width: 0;
   }
