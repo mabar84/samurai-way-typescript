@@ -1,11 +1,13 @@
 import React from 'react';
-import styled from "styled-components";
-import {myTheme} from "../../styles/Theme.styled";
-import {Profile} from "../profile/Profile";
+import styled from 'styled-components';
+import {myTheme} from '../../styles/Theme.styled';
+import {Profile} from '../profile/Profile';
+import {Image} from '../image/Image';
 
 export const Content = () => {
     return (
         <StyledSection>
+
             <Profile/>
         </StyledSection>
     );
