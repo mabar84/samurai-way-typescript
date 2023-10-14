@@ -1,6 +1,10 @@
 import React from 'react';
 import {styled} from 'styled-components';
 import {Image} from '../image/Image';
+import {Button} from '../button/button';
+import {Textarea} from '../textarea/Textarea';
+import {Post} from '../post/Post';
+import {Avatar} from '../avatar/Avatar';
 
 export const Profile = () => {
     return (
@@ -8,23 +12,23 @@ export const Profile = () => {
             <Image/>
 
             <div className="flex-container">
-
                 <div>
-                    <textarea name="qw" id="qw"></textarea>
-                    <button>Add post</button>
-                </div>
+                    <Avatar/>
 
-                <div>
                     <p>
                         What can i say?
                     </p>
-                    <img className={'avatar'} src="https://cs6.pikabu.ru/avatars/1536/v1536759-1512667144.jpg"
-                         alt="ava"/>
                 </div>
 
+                <div>
+                    <Textarea/>
+                    <Button buttonName={'add post'}/>
+                </div>
             </div>
 
-
+            <Post text={'My first post'} likeCount={22}/>
+            <Post text={'Hello, World!'} likeCount={11}/>
+            <Post text={'I\m going to sleep'} likeCount={9}/>
         </StyledProfile>
     );
 };
@@ -33,14 +37,14 @@ export const StyledProfile = styled.div`
 
   .flex-container {
     display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+
+    div {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
 
   }
-
-  .avatar {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-  }
-
-
 `

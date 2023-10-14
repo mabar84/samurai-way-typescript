@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import {Logo} from '../../components/logo/Logo';
 import {myTheme} from '../../styles/Theme.styled';
+import {Logo} from '../logo/Logo';
 
 export const Header = () => {
     return (
@@ -25,7 +25,7 @@ const StyledHeader = styled.header`
   justify-content: end;
   gap: 50px;
   border-radius: 0 0 10px 10px;
-  margin: 0 10px;
+  margin: 0 10px 10px;
   background-color: ${myTheme.colors.primary_background};
 
   & .container {

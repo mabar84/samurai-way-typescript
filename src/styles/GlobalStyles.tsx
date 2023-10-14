@@ -1,11 +1,12 @@
-import {createGlobalStyle} from "styled-components";
-import {myTheme} from "./Theme.styled";
+import {createGlobalStyle} from 'styled-components';
+import {myTheme} from './Theme.styled';
 
 export const GlobalStyles = createGlobalStyle`
   *, *::before, *::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+
   }
 
   *::selection {
@@ -15,6 +16,10 @@ export const GlobalStyles = createGlobalStyle`
 
   * {
     scrollbar-width: none;
+  }
+
+  *:focus {
+    outline: 1px solid ${myTheme.colors.body_background};
   }
 
   body::-webkit-scrollbar {

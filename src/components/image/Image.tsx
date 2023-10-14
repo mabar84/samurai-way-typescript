@@ -14,5 +14,5 @@ const StyledImage = styled.img`
   max-height: 100px;
   border-radius: 5px;
   object-fit: cover;
-
+  margin-bottom: 5px;
 `
