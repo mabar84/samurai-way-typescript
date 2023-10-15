@@ -2,20 +2,39 @@ import React from 'react';
 import {styled} from 'styled-components';
 import {myTheme} from '../../styles/Theme.styled';
 
-export const Textarea = () => {
-    return (
-        <StyledTextarea>
+type TextareaPropsType = {
+    placeholder: string
+}
 
+export const Textarea = (props: TextareaPropsType) => {
+    return (
+        <StyledTextarea placeholder={props.placeholder}>
         </StyledTextarea>
     );
 };
 
 const StyledTextarea = styled.textarea`
-  height: 100px;
+  min-height: 100px;
+  height: 100%;
+  width: 100%;
   padding: 5px;
   border-radius: 5px;
-  border: 1px solid ${myTheme.colors.primary_background};
-  background-color: ${myTheme.colors.body_background};
-  color: ${myTheme.colors.primary_background};
+  border: 2px solid ${myTheme.colors.primary};
+  background-color: ${myTheme.colors.background};
+  color: ${myTheme.colors.primary};
   resize: none;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    width: 0;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::placeholder {
+    color: ${myTheme.colors.secondary};
+
+  }
 `

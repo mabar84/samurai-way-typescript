@@ -1,6 +1,6 @@
-import React from "react";
-import styled from "styled-components";
-import {myTheme} from "../../styles/Theme.styled";
+import React from 'react';
+import styled from 'styled-components';
+import {myTheme} from '../../styles/Theme.styled';
 
 export const Logo = () => {
     return (
@@ -25,7 +25,7 @@ const StyledLogo = styled.a`
 
   &:hover {
     svg {
-      fill: ${myTheme.colors.primary_background};
+      fill: ${myTheme.colors.primary};
       stroke: rgba(231, 15, 170, 0.76);
     }
   }

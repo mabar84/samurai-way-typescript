@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
-import styled from "styled-components";
-import {myTheme} from "../../styles/Theme.styled";
+import styled from 'styled-components';
+import {myTheme} from '../../styles/Theme.styled';
 
 export const GoTopButton = () => {
 
@@ -46,7 +46,7 @@ const StyledGoTopButton = styled.button`
     background-color: rgba(255, 255, 255, 0.3);
 
     svg {
-      fill: ${myTheme.colors.primary_background};
+      fill: ${myTheme.colors.primary};
     }
   }
 `

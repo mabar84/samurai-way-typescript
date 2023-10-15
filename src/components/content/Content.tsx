@@ -15,7 +15,7 @@ export const Content = () => {
 
 const StyledSection = styled.section`
   padding: 10px;
-  background-color: ${myTheme.colors.secondary_background};
+  background-color: ${myTheme.colors.secondary};
   border-radius: 10px;
   flex-grow: 1;
   height: calc(100vh - 70px);

@@ -6,32 +6,33 @@ type ButtonPropsType = {
     buttonName: string
 }
 
-
 export const Button = (props: ButtonPropsType) => {
     return (
-        <StyledButton>
+        <StyledButton className={'styledButton'}>
             {props.buttonName}
         </StyledButton>
     );
 };
 
 const StyledButton = styled.button`
+  min-width: 100px;
   padding: 5px;
   border-radius: 5px;
-  background-color: ${myTheme.colors.primary_background};
+  background-color: ${myTheme.colors.primary};
   color: ${myTheme.colors.text};
   cursor: pointer;
-  border: 1px solid ${myTheme.colors.primary_background};
+  border: 2px solid ${myTheme.colors.primary};
+  transition: background-color 0.4s, color .4s;
+  transform: translateY(-1px);
+
 
   &:hover {
-    opacity: 0.8;
-      // box-shadow: 0 1px ${myTheme.colors.primary_background};
+    background-color: ${myTheme.colors.secondary};
   }
 
   &:active {
-    transform: translateY(1px);
-    box-shadow: none;
-
+    transform: translateY(0);
   }
+
 
 `

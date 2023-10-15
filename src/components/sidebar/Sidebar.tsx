@@ -26,7 +26,7 @@ const StyledNav = styled.nav`
   max-height: calc(100vh - 70px);
   padding: 10px;
   border-radius: 10px;
-  background-color: ${myTheme.colors.secondary_background};
+  background-color: ${myTheme.colors.secondary};
   flex-shrink: 0;
   overflow: auto;
   scrollbar-width: none;
@@ -65,7 +65,7 @@ ul {
       transition: color 0.3s;
 
       &:hover {
-        color: ${myTheme.colors.secondary_background}
+        color: ${myTheme.colors.secondary}
       }
 
       ${myTheme.media.less1080} {

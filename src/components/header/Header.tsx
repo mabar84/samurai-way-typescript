@@ -26,7 +26,7 @@ const StyledHeader = styled.header`
   gap: 50px;
   border-radius: 0 0 10px 10px;
   margin: 0 10px 10px;
-  background-color: ${myTheme.colors.primary_background};
+  background-color: ${myTheme.colors.primary};
 
   & .container {
     padding: 10px;

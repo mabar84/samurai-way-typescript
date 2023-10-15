@@ -5,25 +5,19 @@ import {Button} from '../button/button';
 import {Textarea} from '../textarea/Textarea';
 import {Post} from '../post/Post';
 import {Avatar} from '../avatar/Avatar';
+import {AddPost} from '../addPost/AddPost';
+import {myTheme} from '../../styles/Theme.styled';
 
 export const Profile = () => {
+
     return (
         <StyledProfile>
             <Image/>
 
             <div className="flex-container">
-                <div>
-                    <Avatar/>
+                <Avatar/>
 
-                    <p>
-                        What can i say?
-                    </p>
-                </div>
-
-                <div>
-                    <Textarea/>
-                    <Button buttonName={'add post'}/>
-                </div>
+                <AddPost/>
             </div>
 
             <Post text={'My first post'} likeCount={22}/>
@@ -34,17 +28,14 @@ export const Profile = () => {
 };
 
 export const StyledProfile = styled.div`
-
   .flex-container {
     display: flex;
     gap: 10px;
     margin-bottom: 20px;
+    justify-content: space-between;
 
-    div {
-      display: flex;
-      align-items: center;
-      gap: 10px;
+    ${myTheme.media.less768} {
+      flex-direction: column;
     }
-
   }
 `

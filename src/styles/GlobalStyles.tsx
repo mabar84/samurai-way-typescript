@@ -6,12 +6,11 @@ export const GlobalStyles = createGlobalStyle`
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-
   }
 
   *::selection {
-    color: ${myTheme.colors.secondary_background};
-    background-color: ${myTheme.colors.title};
+    color: ${myTheme.colors.secondary};
+    background-color: ${myTheme.colors.text};
   }
 
   * {
@@ -19,7 +18,8 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   *:focus {
-    outline: 1px solid ${myTheme.colors.body_background};
+    outline: 1px solid currentColor;
+      //outline: 1px solid ${myTheme.colors.text};
   }
 
   body::-webkit-scrollbar {
@@ -36,7 +36,7 @@ export const GlobalStyles = createGlobalStyle`
     sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background-color: ${myTheme.colors.body_background};
+    background-color: ${myTheme.colors.background};
     color: ${myTheme.colors.text}
   }
 
@@ -49,14 +49,8 @@ export const GlobalStyles = createGlobalStyle`
       max-width: 1000px;
     }
 
-    ${myTheme.media.less1080} {
-      max-width: calc(100vw - 60px);
-      margin: 0 30px;
-    }
-
-    ${myTheme.media.less700} {
+    ${myTheme.media.less1200} {
       max-width: calc(100vw - 20px);
-      margin: 0 10px;
     }
   }
 
