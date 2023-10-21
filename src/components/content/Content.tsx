@@ -4,12 +4,14 @@ import {myTheme} from '../../styles/Theme.styled';
 import {Profile} from '../profile/Profile';
 import {Dialogs} from '../dialogs/Dialogs';
 import {Route} from 'react-router-dom';
+import {Settings} from '../settings/Settings';
 
 export const Content = () => {
     return (
         <StyledSection>
             <Route path="/dialogs" render={() => <Dialogs/>}/>
             <Route path="/profile" component={() => <Profile/>}/>
+            <Route path="/settings" component={() => <Settings/>}/>
 
         </StyledSection>
     );

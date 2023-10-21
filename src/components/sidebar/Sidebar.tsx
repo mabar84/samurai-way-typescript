@@ -2,46 +2,25 @@ import React from 'react';
 import styled from 'styled-components';
 import {myTheme} from '../../styles/Theme.styled';
 import s from './sidebar.module.scss'
-import {Link} from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
 
 export const Sidebar = () => {
     return (
         <StyledNav>
             <ul>
                 <li className={s.item}>
-                    <Link to={'profile'}>Profile</Link>
+                    <NavLink to={'profile'}>Profile</NavLink>
                 </li>
                 <li className={`${s.item} ${s.active}`}>
-                    <Link to={'/dialogs'}>Dialogs</Link>
+                    <NavLink to={'/dialogs'}>Dialogs</NavLink>
+                </li>
+                <li className={s.item}>
+                    <NavLink to={'settings'}>Settings</NavLink>
                 </li>
             </ul>
-            <Par/>
-
-
         </StyledNav>
     );
 };
-
-
-const Par = () => {
-    return (
-        <div>
-            123
-            <Baby title={'Заголовок'}
-            />
-        </div>
-    )
-}
-const Baby = ({title, name = 'Vasia'}: any) => {
-    return (
-        <div>
-            title = {title}
-            <br/>
-            name = {name}
-        </div>
-    )
-}
-
 
 const StyledNav = styled.nav`
   width: 180px;
@@ -64,10 +43,7 @@ const StyledNav = styled.nav`
 }
 
 ul {
-  display: flex;
-  gap: 50px;
   height: 100%;
-  align-items: center;
   color: ${myTheme.colors.text};
 
   li {
@@ -86,20 +62,35 @@ ul {
 
     a {
       transition: color 0.3s;
+      color: ${myTheme.colors.text};
 
       &:hover {
-        color: ${myTheme.colors.secondary}
+        color: ${myTheme.colors.background}
       }
 
-      ${myTheme.media.less1080} {
-        gap: 15px;
+      &:focus {
+        color: ${myTheme.colors.background}
       }
 
-      ${myTheme.media.less700} {
-        justify-content: start;
-        flex-wrap: nowrap;
-        overflow: auto;
-        gap: 10px;
+      &.active {
+        color: ${myTheme.colors.primary};
+
+        &:hover {
+          color: ${myTheme.colors.background}
+        }
       }
+
     }
+
+    ${myTheme.media.less1080} {
+      gap: 15px;
+    }
+
+    ${myTheme.media.less700} {
+      justify-content: start;
+      flex-wrap: nowrap;
+      overflow: auto;
+      gap: 10px;
+    }
+  }
 `;
