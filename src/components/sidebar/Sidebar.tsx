@@ -68,18 +68,9 @@ ul {
         color: ${myTheme.colors.background}
       }
 
-      &:focus {
-        color: ${myTheme.colors.background}
-      }
-
       &.active {
-        color: ${myTheme.colors.primary};
-
-        &:hover {
-          color: ${myTheme.colors.background}
-        }
+        text-decoration: underline;
       }
-
     }
 
     ${myTheme.media.less1080} {
