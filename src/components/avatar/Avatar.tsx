@@ -22,11 +22,14 @@ const StyledAvatar = styled.div`
   flex-grow: 0;
   width: 50%;
 
-
   img {
     width: 100px;
     height: 100px;
     border-radius: 50%;
+  }
+
+  p {
+    cursor: pointer;
   }
 
   ${myTheme.media.less768} {

@@ -11,7 +11,6 @@ export const Header = () => {
                 <Logo/>
                 23423
             </div>
-
         </StyledHeader>
     );
 };

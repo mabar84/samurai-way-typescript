@@ -45,7 +45,7 @@ export const GlobalStyles = createGlobalStyle`
     margin: 0 auto;
     overflow: hidden;
 
-    ${myTheme.media.less1360} {
+    ${myTheme.media.less1280} {
       max-width: 1000px;
     }
 

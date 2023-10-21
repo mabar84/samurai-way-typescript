@@ -2,13 +2,15 @@ import React from 'react';
 import styled from 'styled-components';
 import {myTheme} from '../../styles/Theme.styled';
 import {Profile} from '../profile/Profile';
-import {Image} from '../image/Image';
+import {Dialogs} from '../dialogs/Dialogs';
+import {Route} from 'react-router-dom';
 
 export const Content = () => {
     return (
         <StyledSection>
+            <Route path="/dialogs" render={() => <Dialogs/>}/>
+            <Route path="/profile" component={() => <Profile/>}/>
 
-            <Profile/>
         </StyledSection>
     );
 };

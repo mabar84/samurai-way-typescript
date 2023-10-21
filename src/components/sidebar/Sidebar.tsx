@@ -2,23 +2,46 @@ import React from 'react';
 import styled from 'styled-components';
 import {myTheme} from '../../styles/Theme.styled';
 import s from './sidebar.module.scss'
+import {Link} from 'react-router-dom';
 
 export const Sidebar = () => {
     return (
         <StyledNav>
             <ul>
-                <li className={s.item}>1</li>
-                <li className={`${s.item} ${s.active}`}>2</li>
-                <li className={s.item}>3</li>
-                {/*{myTheme.state.navItems.map((el, ind) => {*/}
-                {/*    return <li key={ind}>*/}
-                {/*        <Link to={el[1]}>{el[0]}</Link>*/}
-                {/*    </li>*/}
-                {/*})}*/}
+                <li className={s.item}>
+                    <Link to={'profile'}>Profile</Link>
+                </li>
+                <li className={`${s.item} ${s.active}`}>
+                    <Link to={'/dialogs'}>Dialogs</Link>
+                </li>
             </ul>
+            <Par/>
+
+
         </StyledNav>
     );
 };
+
+
+const Par = () => {
+    return (
+        <div>
+            123
+            <Baby title={'Заголовок'}
+            />
+        </div>
+    )
+}
+const Baby = ({title, name = 'Vasia'}: any) => {
+    return (
+        <div>
+            title = {title}
+            <br/>
+            name = {name}
+        </div>
+    )
+}
+
 
 const StyledNav = styled.nav`
   width: 180px;
@@ -30,7 +53,7 @@ const StyledNav = styled.nav`
   flex-shrink: 0;
   overflow: auto;
   scrollbar-width: none;
-  
+
   &::-webkit-scrollbar {
     width: 0;
   }

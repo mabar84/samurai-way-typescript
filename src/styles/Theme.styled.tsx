@@ -6,7 +6,7 @@ export const myTheme = {
         secondary: '#C9A66B',
     },
     media: {
-        less1360: '@media screen and (max-width: 1360px)',
+        less1280: '@media screen and (max-width: 1360px)',
         less1200: '@media screen and (max-width: 1200px)',
         less1080: '@media screen and (max-width: 1080px)',
         less768: '@media screen and (max-width: 768px)',
