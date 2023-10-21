@@ -13,11 +13,11 @@ export const GlobalStyles = createGlobalStyle`
     background-color: ${myTheme.colors.text};
   }
 
-  * {
-    scrollbar-width: none;
-  }
+  //* {
+  //  scrollbar-width: none;
+  //}
 
-  *:focus {
+  *:focus-visible {
     outline: 1px solid currentColor;
       //outline: 1px solid ${myTheme.colors.text};
   }

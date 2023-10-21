@@ -1,20 +1,19 @@
 import React from 'react';
 import styled from 'styled-components';
 import {myTheme} from '../../styles/Theme.styled';
-import s from './sidebar.module.scss'
 import {NavLink} from 'react-router-dom';
 
 export const Sidebar = () => {
     return (
         <StyledNav>
             <ul>
-                <li className={s.item}>
+                <li>
                     <NavLink to={'profile'}>Profile</NavLink>
                 </li>
-                <li className={`${s.item} ${s.active}`}>
+                <li>
                     <NavLink to={'/dialogs'}>Dialogs</NavLink>
                 </li>
-                <li className={s.item}>
+                <li>
                     <NavLink to={'settings'}>Settings</NavLink>
                 </li>
             </ul>
@@ -31,7 +30,7 @@ const StyledNav = styled.nav`
   background-color: ${myTheme.colors.secondary};
   flex-shrink: 0;
   overflow: auto;
-  scrollbar-width: none;
+  //scrollbar-width: none;
 
   &::-webkit-scrollbar {
     width: 0;
