@@ -8,13 +8,16 @@ export const Sidebar = () => {
         <StyledNav>
             <ul>
                 <li>
-                    <NavLink to={'profile'}>Profile</NavLink>
+                    <NavLink className={isActive => 'nav-link' + (!isActive ? ' unselected' : '')}
+                             to={'/profile'}>Profile</NavLink>
                 </li>
                 <li>
-                    <NavLink to={'/dialogs'}>Dialogs</NavLink>
+                    <NavLink className={isActive => 'nav-link' + (!isActive ? ' unselected' : '')}
+                             to={'/dialogs'}>Dialogs</NavLink>
                 </li>
                 <li>
-                    <NavLink to={'settings'}>Settings</NavLink>
+                    <NavLink className={isActive => 'nav-link' + (!isActive ? ' unselected' : '')}
+                             to={'settings'}>Settings</NavLink>
                 </li>
             </ul>
         </StyledNav>
@@ -30,7 +33,6 @@ const StyledNav = styled.nav`
   background-color: ${myTheme.colors.secondary};
   flex-shrink: 0;
   overflow: auto;
-  //scrollbar-width: none;
 
   &::-webkit-scrollbar {
     width: 0;

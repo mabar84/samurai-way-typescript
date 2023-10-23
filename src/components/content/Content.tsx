@@ -1,18 +1,17 @@
 import React from 'react';
+import {Route} from 'react-router-dom';
 import styled from 'styled-components';
 import {myTheme} from '../../styles/Theme.styled';
 import {Profile} from '../profile/Profile';
 import {Dialogs} from '../dialogs/Dialogs';
-import {Route} from 'react-router-dom';
 import {Settings} from '../settings/Settings';
 
 export const Content = () => {
     return (
         <StyledSection>
-            <Route path="/dialogs" render={() => <Dialogs/>}/>
             <Route path="/profile" component={() => <Profile/>}/>
-            <Route path="/settings" component={() => <Settings/>}/>
-
+            <Route path="/dialogs" component={() => <Dialogs/>}/>
+            <Route path="/settings" render={() => <Settings/>}/>
         </StyledSection>
     );
 };
@@ -24,8 +23,6 @@ const StyledSection = styled.section`
   flex-grow: 1;
   height: calc(100vh - 70px);
   overflow: auto;
-
-  scrollbar-width: none;
 
   &::-webkit-scrollbar {
     width: 0;
