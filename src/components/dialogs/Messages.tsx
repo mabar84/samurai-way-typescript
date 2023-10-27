@@ -25,7 +25,8 @@ export const Messages = () => {
 
     return (
         <StyledMessages>
-            {messagesData.map(el => <Message key={el.id} message={el.message} isMine={el.isMine}/>)}
+            {messagesData.map(el =>
+                <Message key={el.id} message={el.message} isMine={el.isMine}/>)}
         </StyledMessages>
     );
 };

@@ -9,14 +9,14 @@ type MessagePropsType = {
 
 export const Message = (props: MessagePropsType) => {
     return (
-        <StyledMessage isMine={props.isMine}>
+        <StyledMessage $isMine={props.isMine}>
             {props.message}
         </StyledMessage>
     )
 }
 
 type StyledMessagePropsType = {
-    isMine: boolean
+    $isMine: boolean
 }
 
 const StyledMessage = styled.p<StyledMessagePropsType>`
@@ -52,12 +52,13 @@ const StyledMessage = styled.p<StyledMessagePropsType>`
   }
 
 
-  ${props => props.isMine && css`
+  ${props => props.$isMine && css`
     margin-left: unset;
       //border: 1px solid ${myTheme.colors.primary};
     &::before, &::after {
       background: ${myTheme.colors.primary};
     }
-  `}
+  `
+  }
 
 `

@@ -1,12 +1,10 @@
 import React from 'react';
 import {styled} from 'styled-components';
 import {Image} from '../image/Image';
-import {Button} from '../button/button';
-import {Textarea} from '../textarea/Textarea';
-import {Post} from '../post/Post';
 import {Avatar} from '../avatar/Avatar';
 import {AddPost} from '../addPost/AddPost';
 import {myTheme} from '../../styles/Theme.styled';
+import {Posts} from '../posts/Posts';
 
 export const Profile = () => {
 
@@ -20,9 +18,7 @@ export const Profile = () => {
                 <AddPost/>
             </div>
 
-            <Post text={'My first post'} likeCount={22}/>
-            <Post text={'Hello, World!'} likeCount={11}/>
-            <Post text={'I\m going to sleep'} likeCount={9}/>
+            <Posts/>
         </StyledProfile>
     );
 };

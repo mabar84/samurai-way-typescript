@@ -1,9 +1,8 @@
 import React from 'react';
 import {styled} from 'styled-components';
-import {Avatar} from '../avatar/Avatar';
 
 type PostPropsType = {
-    text: string
+    post: string
     likeCount: number
 }
 
@@ -14,7 +13,7 @@ export const Post = (props: PostPropsType) => {
             <img src="https://cs6.pikabu.ru/avatars/1536/v1536759-1512667144.jpg" alt="ava"/>
 
 
-            <p> {props.text}</p>
+            <p> {props.post}</p>
             <p> {props.likeCount}</p>
 
         </StyledPost>

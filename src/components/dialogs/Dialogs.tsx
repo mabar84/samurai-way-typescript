@@ -8,13 +8,10 @@ export const Dialogs = () => {
         <StyledDialogs>
             <Users/>
 
-
             <Messages/>
-
         </StyledDialogs>
     );
 };
-
 
 const StyledDialogs = styled.div`
   display: grid;
