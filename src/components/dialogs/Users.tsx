@@ -4,7 +4,7 @@ import {User} from './User';
 
 export const Users = () => {
 
-    const users = [
+    const usersData = [
         {
             id: 1,
             name: 'Petr'
@@ -22,7 +22,7 @@ export const Users = () => {
 
     return (
         <StyledUsers>
-            {users.map(el => <User id={el.id} name={el.name}/>)}
+            {usersData.map(el => <User key={el.id} id={el.id} name={el.name}/>)}
         </StyledUsers>
     );
 };
