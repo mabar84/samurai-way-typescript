@@ -8,15 +8,15 @@ export const Sidebar = () => {
         <StyledNav>
             <ul>
                 <li>
-                    <NavLink className={isActive => 'nav-link' + (!isActive ? ' unselected' : '')}
+                    <NavLink className={isActive => !isActive ? ' unselected' : ''}
                              to={'/profile'}>Profile</NavLink>
                 </li>
                 <li>
-                    <NavLink className={isActive => 'nav-link' + (!isActive ? ' unselected' : '')}
+                    <NavLink className={isActive => !isActive ? ' unselected' : ''}
                              to={'/dialogs'}>Dialogs</NavLink>
                 </li>
                 <li>
-                    <NavLink className={isActive => 'nav-link' + (!isActive ? ' unselected' : '')}
+                    <NavLink className={isActive => !isActive ? ' unselected' : ''}
                              to={'settings'}>Settings</NavLink>
                 </li>
             </ul>
@@ -48,6 +48,7 @@ ul {
   color: ${myTheme.colors.text};
 
   li {
+    width: max-content;
     text-align: center;
     font-size: 20px;
     font-style: normal;

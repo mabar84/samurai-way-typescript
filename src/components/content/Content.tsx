@@ -1,5 +1,5 @@
 import React from 'react';
-import {Route} from 'react-router-dom';
+import {Redirect, Route} from 'react-router-dom';
 import styled from 'styled-components';
 import {myTheme} from '../../styles/Theme.styled';
 import {Profile} from '../profile/Profile';
@@ -8,14 +8,15 @@ import {Settings} from '../settings/Settings';
 import {AppPropsType} from '../../App';
 
 export const Content: React.FC<AppPropsType> = (props) => {
-    console.log(props.state)
-
     return (
         <StyledSection>
-            <Route path="/profile" component={() => <Profile postsData={props.state.postsData}/>}/>
-            <Route path="/dialogs" component={() => <Dialogs usersData={props.state.usersData}
-                                                             messagesData={props.state.messagesData}/>}/>
-            <Route path="/settings" render={() => <Settings/>}/>
+            <Redirect exact from="/" to="/profile"/>
+            <Route path="/profile" component={() =>
+                <Profile postsData={props.state.postsData}/>}/>
+            <Route path="/dialogs" component={() =>
+                <Dialogs usersData={props.state.usersData} messagesData={props.state.messagesData}/>}/>
+            <Route path="/settings" render={() =>
+                <Settings/>}/>
         </StyledSection>
     );
 };
