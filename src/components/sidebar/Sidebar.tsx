@@ -57,21 +57,12 @@ ul {
     align-items: center;
     white-space: nowrap;
 
-    ${myTheme.media.less700} {
-      font-size: 16px;
+    .active {
+      color: ${myTheme.colors.primary}
     }
 
-    a {
-      transition: color 0.3s;
-      color: ${myTheme.colors.text};
-
-      &:hover {
-        color: ${myTheme.colors.background}
-      }
-
-      &.active {
-        text-decoration: underline;
-      }
+    &:hover {
+      color: ${myTheme.colors.background}
     }
 
     ${myTheme.media.less1080} {
@@ -83,6 +74,7 @@ ul {
       flex-wrap: nowrap;
       overflow: auto;
       gap: 10px;
+      font-size: 16px;
     }
   }
 `;
