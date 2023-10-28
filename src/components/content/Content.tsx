@@ -5,12 +5,15 @@ import {myTheme} from '../../styles/Theme.styled';
 import {Profile} from '../profile/Profile';
 import {Dialogs} from '../dialogs/Dialogs';
 import {Settings} from '../settings/Settings';
+import {AppPropsType} from '../../App';
 
-export const Content = () => {
+export const Content: React.FC<AppPropsType> = (props) => {
+    console.log(props.state)
+
     return (
         <StyledSection>
             <Route path="/profile" component={() => <Profile/>}/>
-            <Route path="/dialogs" component={() => <Dialogs/>}/>
+            <Route path="/dialogs" component={() => <Dialogs messagesData={props.state.messagesData}/>}/>
             <Route path="/settings" render={() => <Settings/>}/>
         </StyledSection>
     );

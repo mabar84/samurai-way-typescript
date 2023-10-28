@@ -1,13 +1,16 @@
 import React from 'react';
-import {styled} from "styled-components";
-import {Content} from "../content/Content";
-import {Sidebar} from "../sidebar/Sidebar";
+import {styled} from 'styled-components';
+import {Content} from '../content/Content';
+import {Sidebar} from '../sidebar/Sidebar';
+import {AppPropsType} from '../../App';
 
-export const Main = () => {
+export const Main: React.FC<AppPropsType> = (props) => {
+    console.log(props.state)
+
     return (
         <StyledMain className={'container'}>
             <Sidebar/>
-            <Content/>
+            <Content state={{...props.state}}/>
         </StyledMain>
     );
 };

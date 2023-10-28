@@ -28,6 +28,7 @@ const StyledMessage = styled.p<StyledMessagePropsType>`
   border: 1px solid ${myTheme.colors.background};
   font-style: italic;
   position: relative;
+  text-align: right;
 
   &::before {
     content: '';
@@ -50,8 +51,7 @@ const StyledMessage = styled.p<StyledMessagePropsType>`
     left: -16px;
     top: 2px;
   }
-
-
+  
   ${props => props.$isMine && css`
     margin-left: unset;
       //border: 1px solid ${myTheme.colors.primary};
@@ -60,5 +60,4 @@ const StyledMessage = styled.p<StyledMessagePropsType>`
     }
   `
   }
-
 `

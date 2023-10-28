@@ -2,13 +2,19 @@ import React from 'react';
 import {styled} from 'styled-components';
 import {Users} from './Users';
 import {Messages} from './Messages';
+import {MessageType} from '../../index';
 
-export const Dialogs = () => {
+type DialogsPropsType = {
+    messagesData: MessageType[]
+}
+
+export const Dialogs: React.FC<DialogsPropsType> = (props) => {
+    console.log(props)
     return (
         <StyledDialogs>
             <Users/>
 
-            <Messages/>
+            <Messages messagesData={props.messagesData}/>
         </StyledDialogs>
     );
 };
