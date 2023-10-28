@@ -40,6 +40,19 @@ export const GlobalStyles = createGlobalStyle`
     color: ${myTheme.colors.text}
   }
 
+  &::-webkit-scrollbar {
+    width: 2px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: ${myTheme.colors.primary};
+    border-radius: 2px;
+  }
+
+  &::-webkit-scrollbar-button {
+    height: 8px;
+  }
+
   .container {
     max-width: 1200px;
     margin: 0 auto;

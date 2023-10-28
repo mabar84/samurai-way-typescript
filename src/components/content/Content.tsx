@@ -28,19 +28,4 @@ const StyledSection = styled.section`
   flex-grow: 1;
   height: calc(100vh - 70px);
   overflow: auto;
-
-  &::-webkit-scrollbar {
-    width: 2px;
-  }
-
-  &::-webkit-scrollbar-thumb {
-    background-color: ${myTheme.colors.primary};
-    border-radius: 2px;
-  }
-
-  &::-webkit-scrollbar-button {
-    height: 8px;
-  }
-
-
 `
