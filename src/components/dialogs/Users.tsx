@@ -1,28 +1,18 @@
 import React from 'react';
 import {styled} from 'styled-components';
 import {User} from './User';
+import {UserType} from '../../state/state';
 
-export const Users = () => {
+type UsersPropsType = {
+    usersData: UserType[]
+}
 
-    const usersData = [
-        {
-            id: 1,
-            name: 'Petr'
-        }, {
-            id: 2,
-            name: 'Aramis'
-        }, {
-            id: 3,
-            name: 'Guffi'
-        }, {
-            id: 4,
-            name: 'Donatello'
-        },
-    ]
+export const Users: React.FC<UsersPropsType> = (props) => {
 
     return (
         <StyledUsers>
-            {usersData.map(el => <User key={el.id} id={el.id} name={el.name}/>)}
+            {props.usersData.map(el =>
+                <User key={el.id} id={el.id} name={el.name}/>)}
         </StyledUsers>
     );
 };

@@ -12,8 +12,9 @@ export const Content: React.FC<AppPropsType> = (props) => {
 
     return (
         <StyledSection>
-            <Route path="/profile" component={() => <Profile/>}/>
-            <Route path="/dialogs" component={() => <Dialogs messagesData={props.state.messagesData}/>}/>
+            <Route path="/profile" component={() => <Profile postsData={props.state.postsData}/>}/>
+            <Route path="/dialogs" component={() => <Dialogs usersData={props.state.usersData}
+                                                             messagesData={props.state.messagesData}/>}/>
             <Route path="/settings" render={() => <Settings/>}/>
         </StyledSection>
     );

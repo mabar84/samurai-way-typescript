@@ -5,8 +5,13 @@ import {Avatar} from '../avatar/Avatar';
 import {AddPost} from '../addPost/AddPost';
 import {myTheme} from '../../styles/Theme.styled';
 import {Posts} from '../posts/Posts';
+import {PostType} from '../../state/state';
 
-export const Profile = () => {
+type ProfilePropsType = {
+    postsData: PostType[]
+}
+
+export const Profile: React.FC<ProfilePropsType> = (props) => {
 
     return (
         <StyledProfile>
@@ -18,7 +23,7 @@ export const Profile = () => {
                 <AddPost/>
             </div>
 
-            <Posts/>
+            <Posts postsData={props.postsData}/>
         </StyledProfile>
     );
 };

@@ -20,4 +20,8 @@ const StyledUser = styled.p`
   .active {
     color: ${myTheme.colors.primary}
   }
+
+  &:hover {
+    color: ${myTheme.colors.background}
+  }
 `

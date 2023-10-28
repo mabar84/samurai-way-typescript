@@ -5,8 +5,6 @@ import {Sidebar} from '../sidebar/Sidebar';
 import {AppPropsType} from '../../App';
 
 export const Main: React.FC<AppPropsType> = (props) => {
-    console.log(props.state)
-
     return (
         <StyledMain className={'container'}>
             <Sidebar/>

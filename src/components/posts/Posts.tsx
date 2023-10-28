@@ -1,30 +1,19 @@
 import React from 'react';
 import {styled} from 'styled-components';
 import {Post} from './Post';
+import {PostType} from '../../state/state';
 
-export const Posts = () => {
+type PostsPropsType = {
+    postsData: PostType[]
+}
 
-    const postsData = [
-        {
-            id: 1,
-            post: 'My first post',
-            likeCount: 22
-        },
-        {
-            id: 2,
-            post: 'Hello, World!',
-            likeCount: 11
-        },
-        {
-            id: 3,
-            post: 'I\m going to sleep',
-            likeCount: 0
-        },
-    ]
+export const Posts: React.FC<PostsPropsType> = (props) => {
+
 
     return (
         <StyledPosts>
-            {postsData.map(el => <Post key={el.id} post={el.post} likeCount={el.likeCount}/>)}
+            {props.postsData.map(el =>
+                <Post key={el.id} post={el.post} likeCount={el.likeCount}/>)}
         </StyledPosts>
     );
 };
