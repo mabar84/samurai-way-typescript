@@ -30,10 +30,17 @@ const StyledSection = styled.section`
   overflow: auto;
 
   &::-webkit-scrollbar {
-    width: 0;
+    width: 2px;
   }
 
-  &::-webkit-scrollbar-track {
-    background: transparent;
+  &::-webkit-scrollbar-thumb {
+    background-color: ${myTheme.colors.primary};
+    border-radius: 2px;
   }
+
+  &::-webkit-scrollbar-button {
+    height: 8px;
+  }
+
+
 `
