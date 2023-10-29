@@ -13,21 +13,13 @@ export const GlobalStyles = createGlobalStyle`
     background-color: ${myTheme.colors.text};
   }
 
-  //* {
-  //  scrollbar-width: none;
-  //}
-
   *:focus-visible {
     outline: 1px solid currentColor;
       //outline: 1px solid ${myTheme.colors.text};
   }
 
-  body::-webkit-scrollbar {
-    width: 0;
-  }
-
-  body::-webkit-scrollbar-track {
-    background: transparent;
+  * {
+    scrollbar-width: none;
   }
 
   body {
@@ -75,5 +67,7 @@ export const GlobalStyles = createGlobalStyle`
   ul {
     list-style: none;
   }
+
+
 `;
 
