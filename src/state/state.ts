@@ -47,6 +47,11 @@ export let state: StateType = {
             post: 'I\m going to sleep',
             likeCount: 0
         },
+        {
+            id: 4,
+            post: 'This post for testing big texts. This post for testing big texts. This post for testing big texts. This post for testing big texts. This post for testing big texts. This post for testing big texts. This post for testing big texts. This post for testing big texts. ',
+            likeCount: 0
+        },
     ]
 }
 
