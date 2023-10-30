@@ -2,10 +2,11 @@ import React from 'react';
 import {Redirect, Route} from 'react-router-dom';
 import styled from 'styled-components';
 import {myTheme} from '../../styles/Theme.styled';
+import {AppPropsType} from '../../App';
 import {Profile} from '../profile/Profile';
 import {Dialogs} from '../dialogs/Dialogs';
 import {Settings} from '../settings/Settings';
-import {AppPropsType} from '../../App';
+import {Friends} from '../friends/Friends';
 
 export const Content: React.FC<AppPropsType> = (props) => {
     return (
@@ -15,6 +16,8 @@ export const Content: React.FC<AppPropsType> = (props) => {
                 <Profile postsData={props.state.postsData}/>}/>
             <Route path="/dialogs" component={() =>
                 <Dialogs usersData={props.state.usersData} messagesData={props.state.messagesData}/>}/>
+            <Route path="/friends" render={() =>
+                <Friends friendsData={props.state.friendsData}/>}/>
             <Route path="/settings" render={() =>
                 <Settings/>}/>
         </StyledSection>

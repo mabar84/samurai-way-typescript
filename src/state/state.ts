@@ -52,6 +52,28 @@ export let state: StateType = {
             post: 'This post for testing big texts. This post for testing big texts. This post for testing big texts. This post for testing big texts. This post for testing big texts. This post for testing big texts. This post for testing big texts. This post for testing big texts. ',
             likeCount: 0
         },
+    ],
+    friendsData: [
+        {
+            id: 1,
+            name: 'Aine'
+        },
+        {
+            id: 2,
+            name: 'Caitlin'
+        },
+        {
+            id: 3,
+            name: 'Kyrre'
+        },
+        {
+            id: 4,
+            name: 'Rissa'
+        },
+        {
+            id: 5,
+            name: 'Sephinroth'
+        },
     ]
 }
 
@@ -69,8 +91,13 @@ export type PostType = {
     post: string
     likeCount: number
 }
+export type FriendType = {
+    id: number
+    name: string
+}
 export type StateType = {
     messagesData: MessageType[]
     usersData: UserType[]
     postsData: PostType[]
+    friendsData: FriendType[]
 }

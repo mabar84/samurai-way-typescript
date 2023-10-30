@@ -17,8 +17,13 @@ export const Sidebar = () => {
                 </li>
                 <li>
                     <NavLink className={isActive => !isActive ? ' unselected' : ''}
+                             to={'friends'}>Friends</NavLink>
+                </li>
+                <li>
+                    <NavLink className={isActive => !isActive ? ' unselected' : ''}
                              to={'settings'}>Settings</NavLink>
                 </li>
+
             </ul>
         </StyledNav>
     );
