@@ -4,11 +4,12 @@ import {myTheme} from '../../styles/Theme.styled';
 
 type TextareaPropsType = {
     placeholder: string
+    textAreaRef: React.RefObject<HTMLTextAreaElement>
 }
 
 export const Textarea = (props: TextareaPropsType) => {
     return (
-        <StyledTextarea placeholder={props.placeholder}>
+        <StyledTextarea ref={props.textAreaRef} placeholder={props.placeholder}>
         </StyledTextarea>
     );
 };

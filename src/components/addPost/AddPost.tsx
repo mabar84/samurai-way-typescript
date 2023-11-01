@@ -1,17 +1,34 @@
-import React from 'react';
+import React, {useRef} from 'react';
 import {styled} from 'styled-components';
 import {Textarea} from '../textarea/Textarea';
 import {Button} from '../button/button';
 import {myTheme} from '../../styles/Theme.styled';
 
 export const AddPost = () => {
+
+    const textAreaRef = useRef<HTMLTextAreaElement>(null)
+
+    const addPost = () => {
+        if (textAreaRef.current) {
+            console.log(textAreaRef.current.value)
+            textAreaRef.current.value = '';
+        }
+    }
+
+    const clearPost = () => {
+        if (textAreaRef.current) {
+            textAreaRef.current.value = '';
+        }
+
+    }
+
     return (
         <StyledAddPost className={'addPost'}>
-            <Textarea placeholder={'Can\'t keep something in yourself?'}/>
+            <Textarea textAreaRef={textAreaRef} placeholder={'Can\'t keep something in yourself?'}/>
 
             <div className={'buttons'}>
-                <Button buttonName={'Clear post'}/>
-                <Button buttonName={'Add post'}/>
+                <Button onClick={clearPost} buttonName={'Clear post'}/>
+                <Button onClick={addPost} buttonName={'Add post'}/>
             </div>
 
         </StyledAddPost>

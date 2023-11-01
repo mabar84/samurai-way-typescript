@@ -4,11 +4,17 @@ import {myTheme} from '../../styles/Theme.styled';
 
 type ButtonPropsType = {
     buttonName: string
+    onClick: () => void
 }
 
 export const Button = (props: ButtonPropsType) => {
+
+    const onClickHandler = () => {
+        props.onClick()
+    }
+
     return (
-        <StyledButton className={'styledButton'}>
+        <StyledButton onClick={onClickHandler} className={'styledButton'}>
             {props.buttonName}
         </StyledButton>
     );
