@@ -1,3 +1,5 @@
+import {rerenderEntireTree} from '../rerender';
+
 export let state: StateType = {
     messagesData: [
         {
@@ -79,22 +81,22 @@ export let state: StateType = {
 
 export const addPost = (post: string) => {
     const newPost: PostType = {
-        id: 5,
+        id: state.postsData.length + 1,
         post: post,
         likeCount: 0
     }
     state.postsData.push(newPost)
-    console.log(state)
+    rerenderEntireTree(state, addPost, addMessage)
 }
 
 export const addMessage = (message: string) => {
     const newMessage: MessageType = {
-        id: 5,
+        id: state.messagesData.length + 1,
         message: message,
         isMine: true
     }
     state.messagesData.push(newMessage)
-    console.log(state)
+    rerenderEntireTree(state, addPost, addMessage)
 }
 
 export type MessageType = {
