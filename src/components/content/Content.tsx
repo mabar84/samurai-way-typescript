@@ -13,9 +13,13 @@ export const Content: React.FC<AppPropsType> = (props) => {
         <StyledSection>
             <Redirect exact from="/" to="/profile"/>
             <Route path="/profile" component={() =>
-                <Profile addPost={props.addPost} postsData={props.state.postsData}/>}/>
+                <Profile onChangeTextArea={props.onChangeTextArea} currentPostValue={props.state.currentTextareaValue}
+                         addPost={props.addPost}
+                         postsData={props.state.postsData}/>}/>
             <Route path="/dialogs" component={() =>
-                <Dialogs addMessage={props.addMessage} usersData={props.state.usersData}
+                <Dialogs onChangeTextArea={props.onChangeTextArea} currentPostValue={props.state.currentTextareaValue}
+                         addMessage={props.addMessage}
+                         usersData={props.state.usersData}
                          messagesData={props.state.messagesData}/>}/>
             <Route path="/friends" render={() =>
                 <Friends friendsData={props.state.friendsData}/>}/>

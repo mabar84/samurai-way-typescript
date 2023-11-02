@@ -10,6 +10,8 @@ import {PostType} from '../../state/state';
 type ProfilePropsType = {
     postsData: PostType[]
     addPost: (post: string) => void
+    currentPostValue: string
+    onChangeTextArea: (t: string) => void
 }
 
 export const Profile: React.FC<ProfilePropsType> = (props) => {
@@ -21,7 +23,8 @@ export const Profile: React.FC<ProfilePropsType> = (props) => {
             <div className="flex-container">
                 <Avatar/>
 
-                <AddPost addPost={props.addPost}/>
+                <AddPost onChangeTextArea={props.onChangeTextArea} currentPostValue={props.currentPostValue}
+                         addPost={props.addPost}/>
             </div>
 
             <Posts postsData={props.postsData}/>

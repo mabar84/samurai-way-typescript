@@ -55,6 +55,7 @@ export let state: StateType = {
             likeCount: 0
         },
     ],
+    currentTextareaValue: '',
     friendsData: [
         {
             id: 1,
@@ -86,7 +87,7 @@ export const addPost = (post: string) => {
         likeCount: 0
     }
     state.postsData.push(newPost)
-    rerenderEntireTree(state, addPost, addMessage)
+    rerenderEntireTree(state, addPost, addMessage, onChangeTextArea)
 }
 
 export const addMessage = (message: string) => {
@@ -96,7 +97,13 @@ export const addMessage = (message: string) => {
         isMine: true
     }
     state.messagesData.push(newMessage)
-    rerenderEntireTree(state, addPost, addMessage)
+    rerenderEntireTree(state, addPost, addMessage, onChangeTextArea)
+}
+
+export const onChangeTextArea = (text: string) => {
+    state.currentTextareaValue = text
+    console.log(text)
+    rerenderEntireTree(state, addPost, addMessage, onChangeTextArea)
 }
 
 export type MessageType = {
@@ -121,5 +128,6 @@ export type StateType = {
     messagesData: MessageType[]
     usersData: UserType[]
     postsData: PostType[]
+    currentTextareaValue: string
     friendsData: FriendType[]
 }

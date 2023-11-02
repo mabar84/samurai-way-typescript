@@ -1,15 +1,24 @@
-import React from 'react';
+import React, {ChangeEvent} from 'react';
 import {styled} from 'styled-components';
 import {myTheme} from '../../styles/Theme.styled';
 
 type TextareaPropsType = {
     placeholder: string
     textAreaRef: React.RefObject<HTMLTextAreaElement>
+    currentPostValue: string
+    onChangeTextArea: (t: string) => void
 }
 
 export const Textarea = (props: TextareaPropsType) => {
+
+    const onChangeHandler = (e: ChangeEvent<HTMLTextAreaElement>) => {
+        props.onChangeTextArea(e.currentTarget.value)
+    }
+
+
     return (
-        <StyledTextarea ref={props.textAreaRef} placeholder={props.placeholder}>
+        <StyledTextarea onChange={onChangeHandler} value={props.currentPostValue} ref={props.textAreaRef}
+                        placeholder={props.placeholder}>
         </StyledTextarea>
     );
 };

@@ -6,6 +6,8 @@ import {myTheme} from '../../styles/Theme.styled';
 
 type AddPostPropsType = {
     addPost: (post: string) => void
+    currentPostValue: string
+    onChangeTextArea: (t: string) => void
 }
 
 export const AddPost: React.FC<AddPostPropsType> = (props) => {
@@ -25,9 +27,12 @@ export const AddPost: React.FC<AddPostPropsType> = (props) => {
         }
     }
 
+
     return (
         <StyledAddPost className={'addPost'}>
-            <Textarea textAreaRef={textAreaRef} placeholder={'Can\'t keep something in yourself?'}/>
+            <Textarea onChangeTextArea={props.onChangeTextArea} currentPostValue={props.currentPostValue}
+                      textAreaRef={textAreaRef}
+                      placeholder={'Can\'t keep something in yourself?'}/>
 
             <div className={'buttons'}>
                 <Button onClick={clearPost} buttonName={'Clear post'}/>

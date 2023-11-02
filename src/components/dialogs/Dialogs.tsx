@@ -9,6 +9,8 @@ type DialogsPropsType = {
     messagesData: MessageType[]
     usersData: UserType[]
     addMessage: (message: string) => void
+    currentPostValue: string
+    onChangeTextArea: (t: string) => void
 }
 
 export const Dialogs: React.FC<DialogsPropsType> = (props) => {
@@ -21,7 +23,8 @@ export const Dialogs: React.FC<DialogsPropsType> = (props) => {
             </div>
 
 
-            <AddPost addPost={props.addMessage}/>
+            <AddPost onChangeTextArea={props.onChangeTextArea} currentPostValue={props.currentPostValue}
+                     addPost={props.addMessage}/>
         </StyledDialogs>
     );
 };
