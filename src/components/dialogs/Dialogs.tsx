@@ -8,6 +8,7 @@ import {AddPost} from '../addPost/AddPost';
 type DialogsPropsType = {
     messagesData: MessageType[]
     usersData: UserType[]
+    addMessage: (message: string) => void
 }
 
 export const Dialogs: React.FC<DialogsPropsType> = (props) => {
@@ -20,7 +21,7 @@ export const Dialogs: React.FC<DialogsPropsType> = (props) => {
             </div>
 
 
-            <AddPost/>
+            <AddPost addPost={props.addMessage}/>
         </StyledDialogs>
     );
 };

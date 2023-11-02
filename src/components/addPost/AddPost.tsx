@@ -4,13 +4,17 @@ import {Textarea} from '../textarea/Textarea';
 import {Button} from '../button/button';
 import {myTheme} from '../../styles/Theme.styled';
 
-export const AddPost = () => {
+type AddPostPropsType = {
+    addPost: (post: string) => void
+}
+
+export const AddPost: React.FC<AddPostPropsType> = (props) => {
 
     const textAreaRef = useRef<HTMLTextAreaElement>(null)
 
     const addPost = () => {
         if (textAreaRef.current) {
-            console.log(textAreaRef.current.value)
+            props.addPost(textAreaRef.current.value)
             textAreaRef.current.value = '';
         }
     }
@@ -19,7 +23,6 @@ export const AddPost = () => {
         if (textAreaRef.current) {
             textAreaRef.current.value = '';
         }
-
     }
 
     return (

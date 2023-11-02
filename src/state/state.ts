@@ -77,6 +77,26 @@ export let state: StateType = {
     ]
 }
 
+export const addPost = (post: string) => {
+    const newPost: PostType = {
+        id: 5,
+        post: post,
+        likeCount: 0
+    }
+    state.postsData.push(newPost)
+    console.log(state)
+}
+
+export const addMessage = (message: string) => {
+    const newMessage: MessageType = {
+        id: 5,
+        message: message,
+        isMine: true
+    }
+    state.messagesData.push(newMessage)
+    console.log(state)
+}
+
 export type MessageType = {
     id: number
     message: string
