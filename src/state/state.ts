@@ -80,30 +80,32 @@ export let state: StateType = {
     ]
 }
 
-export const addPost = (post: string) => {
+export const addPost = () => {
     const newPost: PostType = {
         id: state.postsData.length + 1,
-        post: post,
+        post: state.currentTextareaValue,
         likeCount: 0
     }
     state.postsData.push(newPost)
-    rerenderEntireTree(state, addPost, addMessage, onChangeTextArea)
+    state.currentTextareaValue = ''
+    rerenderEntireTree(state)
 }
 
-export const addMessage = (message: string) => {
+export const addMessage = () => {
     const newMessage: MessageType = {
         id: state.messagesData.length + 1,
-        message: message,
+        message: state.currentTextareaValue,
         isMine: true
     }
     state.messagesData.push(newMessage)
-    rerenderEntireTree(state, addPost, addMessage, onChangeTextArea)
+    state.currentTextareaValue = ''
+    rerenderEntireTree(state)
 }
 
-export const onChangeTextArea = (text: string) => {
-    state.currentTextareaValue = text
+export const updateNewPostText = (text: string) => {
     console.log(text)
-    rerenderEntireTree(state, addPost, addMessage, onChangeTextArea)
+    state.currentTextareaValue = text
+    rerenderEntireTree(state)
 }
 
 export type MessageType = {

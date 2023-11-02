@@ -4,7 +4,6 @@ import {myTheme} from '../../styles/Theme.styled';
 
 type TextareaPropsType = {
     placeholder: string
-    textAreaRef: React.RefObject<HTMLTextAreaElement>
     currentPostValue: string
     onChangeTextArea: (t: string) => void
 }
@@ -17,7 +16,7 @@ export const Textarea = (props: TextareaPropsType) => {
 
 
     return (
-        <StyledTextarea onChange={onChangeHandler} value={props.currentPostValue} ref={props.textAreaRef}
+        <StyledTextarea onChange={onChangeHandler} value={props.currentPostValue}
                         placeholder={props.placeholder}>
         </StyledTextarea>
     );

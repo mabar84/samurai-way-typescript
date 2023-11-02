@@ -9,7 +9,7 @@ import {PostType} from '../../state/state';
 
 type ProfilePropsType = {
     postsData: PostType[]
-    addPost: (post: string) => void
+    addPost: () => void
     currentPostValue: string
     onChangeTextArea: (t: string) => void
 }

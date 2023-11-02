@@ -8,7 +8,7 @@ import {AddPost} from '../addPost/AddPost';
 type DialogsPropsType = {
     messagesData: MessageType[]
     usersData: UserType[]
-    addMessage: (message: string) => void
+    addMessage: () => void
     currentPostValue: string
     onChangeTextArea: (t: string) => void
 }
