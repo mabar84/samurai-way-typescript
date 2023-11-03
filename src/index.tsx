@@ -11,7 +11,8 @@ const rerenderEntireTree = (state: StateType) => {
 
     ReactDOM.render(
         <BrowserRouter>
-            <App onChangeTextArea={store.updateNewPostText} addMessage={store.addMessage} addPost={store.addPost}
+            <App onChangeTextArea={store.updateNewPostText.bind(store)} addMessage={store.addMessage.bind(store)}
+                 addPost={store.addPost.bind(store)}
                  state={state}/>
         </BrowserRouter>
         ,
@@ -20,7 +21,7 @@ const rerenderEntireTree = (state: StateType) => {
 }
 
 
-rerenderEntireTree(store.state)
+rerenderEntireTree(store.getState())
 
 store.subscribe(rerenderEntireTree)
 

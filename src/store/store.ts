@@ -1,9 +1,5 @@
-let rerenderEntireTree2 = (state: any) => {
-    console.log('blabla')
-}
-
 export let store = {
-    state: {
+    _state: {
         messagesData: [
             {
                 id: 1,
@@ -82,63 +78,40 @@ export let store = {
             },
         ]
     },
+    getState() {
+        return this._state
+    },
+    _callSubscriber(state: StateType) {
+    },
     addPost() {
         const newPost: PostType = {
-            id: store.state.postsData.length + 1,
-            post: store.state.currentTextareaValue,
+            id: this._state.postsData.length + 1,
+            post: this._state.currentTextareaValue,
             likeCount: 0
         }
-        store.state.postsData.push(newPost)
-        store.state.currentTextareaValue = ''
-        rerenderEntireTree2(store.state)
+        this._state.postsData.push(newPost)
+        this._state.currentTextareaValue = ''
+        this._callSubscriber(this._state)
     },
     addMessage() {
         const newMessage: MessageType = {
-            id: store.state.messagesData.length + 1,
-            message: store.state.currentTextareaValue,
+            id: this._state.messagesData.length + 1,
+            message: this._state.currentTextareaValue,
             isMine: true
         }
-        store.state.messagesData.push(newMessage)
-        store.state.currentTextareaValue = ''
-        rerenderEntireTree2(store.state)
+        this._state.messagesData.push(newMessage)
+        this._state.currentTextareaValue = ''
+        this._callSubscriber(this._state)
     },
     updateNewPostText(text: string) {
         console.log(text)
-        store.state.currentTextareaValue = text
-        rerenderEntireTree2(store.state)
+        this._state.currentTextareaValue = text
+        this._callSubscriber(this._state)
     },
-    subscribe(observer: any) {
-        rerenderEntireTree2 = observer
+    subscribe(observer: (state: StateType) => void) {
+        this._callSubscriber = observer
     }
 }
-
-// export const addPost = () => {
-//     const newPost: PostType = {
-//         id: store.state.postsData.length + 1,
-//         post: store.state.currentTextareaValue,
-//         likeCount: 0
-//     }
-//     store.state.postsData.push(newPost)
-//     store.state.currentTextareaValue = ''
-//     rerenderEntireTree2(store.state)
-// }
-//
-// export const addMessage = () => {
-//     const newMessage: MessageType = {
-//         id: store.state.messagesData.length + 1,
-//         message: store.state.currentTextareaValue,
-//         isMine: true
-//     }
-//     store.state.messagesData.push(newMessage)
-//     store.state.currentTextareaValue = ''
-//     rerenderEntireTree2(store.state)
-// }
-
-// export const updateNewPostText = (text: string) => {
-//     console.log(text)
-//     store.state.currentTextareaValue = text
-//     rerenderEntireTree2(store.state)
-// }
 
 export type MessageType = {
     id: number
@@ -165,7 +138,3 @@ export type StateType = {
     currentTextareaValue: string
     friendsData: FriendType[]
 }
-
-// export const subscribe = (observer: any) => {
-//     rerenderEntireTree2 = observer
-// }
