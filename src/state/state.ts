@@ -1,4 +1,6 @@
-import {rerenderEntireTree} from '../rerender';
+let rerenderEntireTree2 = (state: any) => {
+    console.log('blabla')
+}
 
 export let state: StateType = {
     messagesData: [
@@ -88,7 +90,7 @@ export const addPost = () => {
     }
     state.postsData.push(newPost)
     state.currentTextareaValue = ''
-    rerenderEntireTree(state)
+    rerenderEntireTree2(state)
 }
 
 export const addMessage = () => {
@@ -99,13 +101,13 @@ export const addMessage = () => {
     }
     state.messagesData.push(newMessage)
     state.currentTextareaValue = ''
-    rerenderEntireTree(state)
+    rerenderEntireTree2(state)
 }
 
 export const updateNewPostText = (text: string) => {
     console.log(text)
     state.currentTextareaValue = text
-    rerenderEntireTree(state)
+    rerenderEntireTree2(state)
 }
 
 export type MessageType = {
@@ -132,4 +134,8 @@ export type StateType = {
     postsData: PostType[]
     currentTextareaValue: string
     friendsData: FriendType[]
+}
+
+export const subscribe = (observer: any) => {
+    rerenderEntireTree2 = observer
 }
