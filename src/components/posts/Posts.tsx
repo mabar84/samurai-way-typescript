@@ -1,7 +1,7 @@
 import React from 'react';
 import {styled} from 'styled-components';
 import {Post} from './Post';
-import {PostType} from '../../state/state';
+import {PostType} from '../../store/store';
 
 type PostsPropsType = {
     postsData: PostType[]

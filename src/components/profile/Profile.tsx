@@ -5,7 +5,7 @@ import {Avatar} from '../avatar/Avatar';
 import {AddPost} from '../addPost/AddPost';
 import {myTheme} from '../../styles/Theme.styled';
 import {Posts} from '../posts/Posts';
-import {PostType} from '../../state/state';
+import {PostType} from '../../store/store';
 
 type ProfilePropsType = {
     postsData: PostType[]

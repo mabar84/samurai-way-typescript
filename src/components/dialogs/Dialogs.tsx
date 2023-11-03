@@ -2,7 +2,7 @@ import React from 'react';
 import {styled} from 'styled-components';
 import {Users} from './Users';
 import {Messages} from './Messages';
-import {MessageType, UserType} from '../../state/state';
+import {MessageType, UserType} from '../../store/store';
 import {AddPost} from '../addPost/AddPost';
 
 type DialogsPropsType = {

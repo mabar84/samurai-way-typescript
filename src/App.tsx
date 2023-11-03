@@ -3,7 +3,7 @@ import './App.css';
 import {Header} from './components/header/Header';
 import {GlobalStyles} from './styles/GlobalStyles';
 import {Main} from './components/main/Main';
-import {StateType,} from './state/state';
+import {StateType,} from './store/store';
 
 export type AppPropsType = {
     state: StateType

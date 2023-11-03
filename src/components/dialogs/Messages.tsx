@@ -1,7 +1,7 @@
 import React from 'react';
 import {Message} from './Message';
 import {styled} from 'styled-components';
-import {MessageType} from '../../state/state';
+import {MessageType} from '../../store/store';
 
 type MessagesPropsType = {
     messagesData: MessageType[]
