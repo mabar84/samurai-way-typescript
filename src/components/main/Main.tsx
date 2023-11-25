@@ -13,7 +13,7 @@ export const Main: React.FC<AppPropsType> = (props) => {
                 addMessage={props.addMessage}
                 addPost={props.addPost}
                 state={{...props.state}}
-            
+                dispatch={props.dispatch}
             />
         </StyledMain>
     );

@@ -3,13 +3,14 @@ import './App.css';
 import {Header} from './components/header/Header';
 import {GlobalStyles} from './styles/GlobalStyles';
 import {Main} from './components/main/Main';
-import {StateType,} from './store/store';
+import {ActionsType, StateType,} from './store/store';
 
 export type AppPropsType = {
     state: StateType
     addPost: () => void
     addMessage: () => void
     onChangeTextArea: (t: string) => void
+    dispatch: (action: ActionsType) => void
 }
 
 export const App: React.FC<AppPropsType> = (props) => {
@@ -17,8 +18,10 @@ export const App: React.FC<AppPropsType> = (props) => {
         <div className="App">
             <GlobalStyles/>
             <Header/>
-            <Main onChangeTextArea={props.onChangeTextArea} addMessage={props.addMessage} addPost={props.addPost}
-                  state={{...props.state}}/>
+            <Main
+                dispatch={props.dispatch}
+                onChangeTextArea={props.onChangeTextArea} addMessage={props.addMessage} addPost={props.addPost}
+                state={{...props.state}}/>
         </div>
     );
 }

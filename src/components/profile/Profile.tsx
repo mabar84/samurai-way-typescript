@@ -5,13 +5,15 @@ import {Avatar} from '../avatar/Avatar';
 import {AddPost} from '../addPost/AddPost';
 import {myTheme} from '../../styles/Theme.styled';
 import {Posts} from '../posts/Posts';
-import {PostType} from '../../store/store';
+import {ActionsType, PostType} from '../../store/store';
 
 type ProfilePropsType = {
     postsData: PostType[]
     addPost: () => void
     currentPostValue: string
     onChangeTextArea: (t: string) => void
+    dispatch: (action: ActionsType) => void
+
 }
 
 export const Profile: React.FC<ProfilePropsType> = (props) => {
@@ -24,7 +26,7 @@ export const Profile: React.FC<ProfilePropsType> = (props) => {
                 <Avatar/>
 
                 <AddPost onChangeTextArea={props.onChangeTextArea} currentPostValue={props.currentPostValue}
-                         addPost={props.addPost}/>
+                         dispatch={props.dispatch} addPost={props.addPost}/>
             </div>
 
             <Posts postsData={props.postsData}/>

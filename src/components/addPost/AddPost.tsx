@@ -3,11 +3,15 @@ import {styled} from 'styled-components';
 import {Textarea} from '../textarea/Textarea';
 import {Button} from '../button/button';
 import {myTheme} from '../../styles/Theme.styled';
+import {ActionsType} from '../../store/store';
 
 type AddPostPropsType = {
     addPost: () => void
     currentPostValue: string
     onChangeTextArea: (t: string) => void
+    dispatch: (action: ActionsType) => void
+
+
 }
 
 export const AddPost: React.FC<AddPostPropsType> = (props) => {
@@ -31,8 +35,10 @@ export const AddPost: React.FC<AddPostPropsType> = (props) => {
 
     return (
         <StyledAddPost className={'addPost'}>
-            <Textarea onChangeTextArea={props.onChangeTextArea} currentPostValue={props.currentPostValue}
-                      placeholder={'Can\'t keep something in yourself?'}/>
+            <Textarea
+                dispatch={props.dispatch}
+                onChangeTextArea={props.onChangeTextArea} currentPostValue={props.currentPostValue}
+                placeholder={'Can\'t keep something in yourself?'}/>
 
             <div className={'buttons'}>
                 <Button onClick={clearPost} buttonName={'Clear post'}/>

@@ -2,7 +2,7 @@ import React from 'react';
 import {styled} from 'styled-components';
 import {Users} from './Users';
 import {Messages} from './Messages';
-import {MessageType, UserType} from '../../store/store';
+import {ActionsType, MessageType, UserType} from '../../store/store';
 import {AddPost} from '../addPost/AddPost';
 
 type DialogsPropsType = {
@@ -11,6 +11,8 @@ type DialogsPropsType = {
     addMessage: () => void
     currentPostValue: string
     onChangeTextArea: (t: string) => void
+    dispatch: (action: ActionsType) => void
+
 }
 
 export const Dialogs: React.FC<DialogsPropsType> = (props) => {
@@ -23,8 +25,10 @@ export const Dialogs: React.FC<DialogsPropsType> = (props) => {
             </div>
 
 
-            <AddPost onChangeTextArea={props.onChangeTextArea} currentPostValue={props.currentPostValue}
-                     addPost={props.addMessage}/>
+            <AddPost
+                dispatch={props.dispatch}
+                onChangeTextArea={props.onChangeTextArea} currentPostValue={props.currentPostValue}
+                addPost={props.addMessage}/>
         </StyledDialogs>
     );
 };

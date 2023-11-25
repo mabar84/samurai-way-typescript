@@ -110,7 +110,23 @@ export let store = {
     },
     subscribe(observer: (state: StateType) => void) {
         this._callSubscriber = observer
+    },
+
+    dispatch(action: UpdateNewPostTextActionType) {
+        if (action.type = 'UPDATE-NEW-POST-TEXT') {
+            console.log(action)
+            this._state.currentTextareaValue = action.newText
+            this._callSubscriber(this._state)
+        }
     }
+
+}
+
+export type ActionsType = UpdateNewPostTextActionType
+
+type UpdateNewPostTextActionType = {
+    type: 'UPDATE-NEW-POST-TEXT'
+    newText: string
 }
 
 export type MessageType = {

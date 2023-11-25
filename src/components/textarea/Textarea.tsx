@@ -1,17 +1,23 @@
 import React, {ChangeEvent} from 'react';
 import {styled} from 'styled-components';
 import {myTheme} from '../../styles/Theme.styled';
+import {ActionsType} from '../../store/store';
 
 type TextareaPropsType = {
     placeholder: string
     currentPostValue: string
     onChangeTextArea: (t: string) => void
+    dispatch: (action: ActionsType) => void
+
 }
 
 export const Textarea = (props: TextareaPropsType) => {
 
     const onChangeHandler = (e: ChangeEvent<HTMLTextAreaElement>) => {
-        props.onChangeTextArea(e.currentTarget.value)
+        // props.onChangeTextArea(e.currentTarget.value)
+        // console.log(123)
+
+        props.dispatch({type: 'UPDATE-NEW-POST-TEXT', newText: e.currentTarget.value})
     }
 
 

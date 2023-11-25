@@ -13,7 +13,9 @@ const rerenderEntireTree = (state: StateType) => {
         <BrowserRouter>
             <App onChangeTextArea={store.updateNewPostText.bind(store)} addMessage={store.addMessage.bind(store)}
                  addPost={store.addPost.bind(store)}
-                 state={state}/>
+                 state={state}
+                 dispatch={store.dispatch.bind(store)}
+            />
         </BrowserRouter>
         ,
         document.getElementById('root')
