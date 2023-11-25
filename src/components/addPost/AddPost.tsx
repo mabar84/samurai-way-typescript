@@ -3,7 +3,7 @@ import {styled} from 'styled-components';
 import {Textarea} from '../textarea/Textarea';
 import {Button} from '../button/button';
 import {myTheme} from '../../styles/Theme.styled';
-import {ActionsType} from '../../store/store';
+import {ActionsType, AddPostAC, UpdateNewPostTextActionAC} from '../../store/store';
 
 type AddPostPropsType = {
     currentPostValue: string
@@ -13,11 +13,11 @@ type AddPostPropsType = {
 export const AddPost: React.FC<AddPostPropsType> = (props) => {
 
     const addPost = () => {
-        props.dispatch({type: 'ADD-POST'})
+        props.dispatch(AddPostAC())
     }
 
     const clearPost = () => {
-        props.dispatch({type: 'UPDATE-NEW-POST-TEXT', newText: ''})
+        props.dispatch(UpdateNewPostTextActionAC(''))
     }
 
     return (

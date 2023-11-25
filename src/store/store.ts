@@ -116,19 +116,6 @@ export let store: StoreType = {
     }
 }
 
-export type ActionsType = AddPostActionType | UpdateNewPostTextActionType | AddMessageActionType
-
-type UpdateNewPostTextActionType = {
-    type: 'UPDATE-NEW-POST-TEXT'
-    newText: string
-}
-type AddPostActionType = {
-    type: 'ADD-POST'
-}
-type AddMessageActionType = {
-    type: 'ADD-MESSAGE'
-}
-
 export type MessageType = {
     id: number
     message: string
@@ -161,3 +148,13 @@ type StoreType = {
     subscribe: (callback: (state: StateType) => void) => void
     dispatch: (action: ActionsType) => void
 }
+
+export type ActionsType =
+    | ReturnType<typeof UpdateNewPostTextActionAC>
+    | ReturnType<typeof AddMessageAC>
+    | ReturnType<typeof AddPostAC>
+
+export const UpdateNewPostTextActionAC = (newText: string) =>
+    ({type: 'UPDATE-NEW-POST-TEXT', newText: newText} as const)
+export const AddPostAC = () => ({type: 'ADD-POST'} as const)
+export const AddMessageAC = () => ({type: 'ADD-MESSAGE'} as const)
