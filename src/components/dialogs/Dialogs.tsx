@@ -3,7 +3,7 @@ import {styled} from 'styled-components';
 import {Users} from './Users';
 import {Messages} from './Messages';
 import {ActionsType, MessageType, UserType} from '../../store/store';
-import {AddPost} from '../addPost/AddPost';
+import {AddMessage} from '../addMessage/AddMessage';
 
 type DialogsPropsType = {
     messagesData: MessageType[]
@@ -22,7 +22,7 @@ export const Dialogs: React.FC<DialogsPropsType> = (props) => {
             </div>
 
 
-            <AddPost
+            <AddMessage
                 dispatch={props.dispatch} currentPostValue={props.currentPostValue}/>
         </StyledDialogs>
     );
