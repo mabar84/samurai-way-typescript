@@ -7,9 +7,6 @@ import {ActionsType, StateType,} from './store/store';
 
 export type AppPropsType = {
     state: StateType
-    addPost: () => void
-    addMessage: () => void
-    onChangeTextArea: (t: string) => void
     dispatch: (action: ActionsType) => void
 }
 
@@ -20,7 +17,6 @@ export const App: React.FC<AppPropsType> = (props) => {
             <Header/>
             <Main
                 dispatch={props.dispatch}
-                onChangeTextArea={props.onChangeTextArea} addMessage={props.addMessage} addPost={props.addPost}
                 state={{...props.state}}/>
         </div>
     );

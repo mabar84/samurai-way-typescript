@@ -9,11 +9,8 @@ import {ActionsType, PostType} from '../../store/store';
 
 type ProfilePropsType = {
     postsData: PostType[]
-    addPost: () => void
     currentPostValue: string
-    onChangeTextArea: (t: string) => void
     dispatch: (action: ActionsType) => void
-
 }
 
 export const Profile: React.FC<ProfilePropsType> = (props) => {
@@ -25,8 +22,8 @@ export const Profile: React.FC<ProfilePropsType> = (props) => {
             <div className="flex-container">
                 <Avatar/>
 
-                <AddPost onChangeTextArea={props.onChangeTextArea} currentPostValue={props.currentPostValue}
-                         dispatch={props.dispatch} addPost={props.addPost}/>
+                <AddPost currentPostValue={props.currentPostValue}
+                         dispatch={props.dispatch}/>
             </div>
 
             <Posts postsData={props.postsData}/>

@@ -1,4 +1,4 @@
-export let store = {
+export let store: StoreType = {
     _state: {
         messagesData: [
             {
@@ -83,50 +83,50 @@ export let store = {
     },
     _callSubscriber(state: StateType) {
     },
-    addPost() {
-        const newPost: PostType = {
-            id: this._state.postsData.length + 1,
-            post: this._state.currentTextareaValue,
-            likeCount: 0
-        }
-        this._state.postsData.push(newPost)
-        this._state.currentTextareaValue = ''
-        this._callSubscriber(this._state)
-    },
-    addMessage() {
-        const newMessage: MessageType = {
-            id: this._state.messagesData.length + 1,
-            message: this._state.currentTextareaValue,
-            isMine: true
-        }
-        this._state.messagesData.push(newMessage)
-        this._state.currentTextareaValue = ''
-        this._callSubscriber(this._state)
-    },
-    updateNewPostText(text: string) {
-        console.log(text)
-        this._state.currentTextareaValue = text
-        this._callSubscriber(this._state)
-    },
     subscribe(observer: (state: StateType) => void) {
         this._callSubscriber = observer
     },
 
-    dispatch(action: UpdateNewPostTextActionType) {
-        if (action.type = 'UPDATE-NEW-POST-TEXT') {
+    dispatch(action: ActionsType) {
+        if (action.type === 'UPDATE-NEW-POST-TEXT') {
             console.log(action)
             this._state.currentTextareaValue = action.newText
             this._callSubscriber(this._state)
         }
+        if (action.type == 'ADD-POST') {
+            const newPost: PostType = {
+                id: this._state.postsData.length + 1,
+                post: this._state.currentTextareaValue,
+                likeCount: 0
+            }
+            this._state.postsData.push(newPost)
+            this._state.currentTextareaValue = ''
+            this._callSubscriber(this._state)
+        }
+        if (action.type == 'ADD-MESSAGE') {
+            const newMessage: MessageType = {
+                id: this._state.messagesData.length + 1,
+                message: this._state.currentTextareaValue,
+                isMine: true
+            }
+            this._state.messagesData.push(newMessage)
+            this._state.currentTextareaValue = ''
+            this._callSubscriber(this._state)
+        }
     }
-
 }
 
-export type ActionsType = UpdateNewPostTextActionType
+export type ActionsType = AddPostActionType | UpdateNewPostTextActionType | AddMessageActionType
 
 type UpdateNewPostTextActionType = {
     type: 'UPDATE-NEW-POST-TEXT'
     newText: string
+}
+type AddPostActionType = {
+    type: 'ADD-POST'
+}
+type AddMessageActionType = {
+    type: 'ADD-MESSAGE'
 }
 
 export type MessageType = {
@@ -153,4 +153,11 @@ export type StateType = {
     postsData: PostType[]
     currentTextareaValue: string
     friendsData: FriendType[]
+}
+type StoreType = {
+    _state: StateType
+    getState: () => StateType
+    _callSubscriber: (state: StateType) => void
+    subscribe: (callback: (state: StateType) => void) => void
+    dispatch: (action: ActionsType) => void
 }

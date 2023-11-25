@@ -1,4 +1,4 @@
-import React, {useRef} from 'react';
+import React from 'react';
 import {styled} from 'styled-components';
 import {Textarea} from '../textarea/Textarea';
 import {Button} from '../button/button';
@@ -6,38 +6,25 @@ import {myTheme} from '../../styles/Theme.styled';
 import {ActionsType} from '../../store/store';
 
 type AddPostPropsType = {
-    addPost: () => void
     currentPostValue: string
-    onChangeTextArea: (t: string) => void
     dispatch: (action: ActionsType) => void
-
-
 }
 
 export const AddPost: React.FC<AddPostPropsType> = (props) => {
 
-    const textAreaRef = useRef<HTMLTextAreaElement>(null)
-
     const addPost = () => {
-        props.addPost()
-        // if (textAreaRef.current) {
-        //     props.addPost(textAreaRef.current.value)
-        //     textAreaRef.current.value = '';
-        // }
+        props.dispatch({type: 'ADD-POST'})
     }
 
     const clearPost = () => {
-        props.onChangeTextArea('')
-        // if (textAreaRef.current) {
-        //     textAreaRef.current.value = '';
-        // }
+        props.dispatch({type: 'UPDATE-NEW-POST-TEXT', newText: ''})
     }
 
     return (
         <StyledAddPost className={'addPost'}>
             <Textarea
                 dispatch={props.dispatch}
-                onChangeTextArea={props.onChangeTextArea} currentPostValue={props.currentPostValue}
+                currentPostValue={props.currentPostValue}
                 placeholder={'Can\'t keep something in yourself?'}/>
 
             <div className={'buttons'}>

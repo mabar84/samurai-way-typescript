@@ -9,9 +9,6 @@ export const Main: React.FC<AppPropsType> = (props) => {
         <StyledMain className={'container'}>
             <Sidebar/>
             <Content
-                onChangeTextArea={props.onChangeTextArea}
-                addMessage={props.addMessage}
-                addPost={props.addPost}
                 state={{...props.state}}
                 dispatch={props.dispatch}
             />

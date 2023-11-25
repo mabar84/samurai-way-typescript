@@ -8,11 +8,8 @@ import {AddPost} from '../addPost/AddPost';
 type DialogsPropsType = {
     messagesData: MessageType[]
     usersData: UserType[]
-    addMessage: () => void
     currentPostValue: string
-    onChangeTextArea: (t: string) => void
     dispatch: (action: ActionsType) => void
-
 }
 
 export const Dialogs: React.FC<DialogsPropsType> = (props) => {
@@ -26,9 +23,7 @@ export const Dialogs: React.FC<DialogsPropsType> = (props) => {
 
 
             <AddPost
-                dispatch={props.dispatch}
-                onChangeTextArea={props.onChangeTextArea} currentPostValue={props.currentPostValue}
-                addPost={props.addMessage}/>
+                dispatch={props.dispatch} currentPostValue={props.currentPostValue}/>
         </StyledDialogs>
     );
 };
