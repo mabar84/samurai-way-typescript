@@ -15,12 +15,12 @@ export const Content: React.FC<AppPropsType> = (props) => {
             <Route path="/profile" component={() =>
                 <Profile
                     dispatch={props.dispatch}
-                    currentPostValue={props.state.currentTextareaValue}
-                    postsData={props.state.postsData}/>}/>
+                    currentPostValue={props.state.profilePage.currentTextareaValue}
+                    postsData={props.state.profilePage.postsData}/>}/>
             <Route path="/dialogs" component={() =>
-                <Dialogs currentPostValue={props.state.currentTextareaValue}
+                <Dialogs currentPostValue={props.state.messagesPage.currentTextareaValue}
                          usersData={props.state.usersData}
-                         messagesData={props.state.messagesData}
+                         messagesData={props.state.messagesPage.messagesData}
                          dispatch={props.dispatch}
                 />}/>
             <Route path="/friends" render={() =>

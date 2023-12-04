@@ -7,12 +7,13 @@ type TextareaPropsType = {
     placeholder: string
     currentPostValue: string
     dispatch: (action: ActionsType) => void
+    actionType: 'UPDATE-NEW-MESSAGE-TEXT' | 'UPDATE-NEW-POST-TEXT'
 }
 
 export const Textarea = (props: TextareaPropsType) => {
 
     const onChangeHandler = (e: ChangeEvent<HTMLTextAreaElement>) => {
-        props.dispatch({type: 'UPDATE-NEW-POST-TEXT', newText: e.currentTarget.value})
+        props.dispatch({type: props.actionType, newText: e.currentTarget.value})
     }
 
 

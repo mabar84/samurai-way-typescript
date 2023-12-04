@@ -3,7 +3,7 @@ import {styled} from 'styled-components';
 import {Textarea} from '../textarea/Textarea';
 import {Button} from '../button/button';
 import {myTheme} from '../../styles/Theme.styled';
-import {ActionsType, AddMessageAC, UpdateNewPostTextActionAC} from '../../store/store';
+import {ActionsType, AddMessageAC, UpdateNewMessageTextAC} from '../../store/store';
 
 type AddMessagePropsType = {
     currentPostValue: string
@@ -17,12 +17,13 @@ export const AddMessage: React.FC<AddMessagePropsType> = (props) => {
     }
 
     const clearMessage = () => {
-        props.dispatch(UpdateNewPostTextActionAC(''))
+        props.dispatch(UpdateNewMessageTextAC(''))
     }
 
     return (
         <StyledAddPost className={'addPost'}>
             <Textarea
+                actionType={'UPDATE-NEW-MESSAGE-TEXT'}
                 dispatch={props.dispatch}
                 currentPostValue={props.currentPostValue}
                 placeholder={'Can\'t keep something in yourself?'}/>
