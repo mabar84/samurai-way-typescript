@@ -1,3 +1,6 @@
+import {profileReducer} from './profile-reducer';
+import {messagesReducer} from './messages-reducer';
+
 export let store: StoreType = {
     _state: {
         messagesPage: {
@@ -21,7 +24,6 @@ export let store: StoreType = {
             ],
         },
         profilePage: {
-            currentTextareaValue: '',
             postsData: [
                 {
                     id: 1,
@@ -44,6 +46,7 @@ export let store: StoreType = {
                     likeCount: 0
                 },
             ],
+            currentTextareaValue: '',
         },
         usersData: [
             {
@@ -91,36 +94,10 @@ export let store: StoreType = {
     subscribe(observer: (state: StateType) => void) {
         this._callSubscriber = observer
     },
-
     dispatch(action: ActionsType) {
-        if (action.type === 'UPDATE-NEW-POST-TEXT') {
-            this._state.profilePage.currentTextareaValue = action.newText
-            this._callSubscriber(this._state)
-        }
-        if (action.type === 'UPDATE-NEW-MESSAGE-TEXT') {
-            this._state.messagesPage.currentTextareaValue = action.newText
-            this._callSubscriber(this._state)
-        }
-        if (action.type == 'ADD-POST') {
-            const newPost: PostType = {
-                id: this._state.profilePage.postsData.length + 1,
-                post: this._state.profilePage.currentTextareaValue,
-                likeCount: 0
-            }
-            this._state.profilePage.postsData.push(newPost)
-            this._state.profilePage.currentTextareaValue = ''
-            this._callSubscriber(this._state)
-        }
-        if (action.type == 'ADD-MESSAGE') {
-            const newMessage: MessageType = {
-                id: this._state.messagesPage.messagesData.length + 1,
-                message: this._state.messagesPage.currentTextareaValue,
-                isMine: true
-            }
-            this._state.messagesPage.messagesData.push(newMessage)
-            this._state.messagesPage.currentTextareaValue = ''
-            this._callSubscriber(this._state)
-        }
+        this._state.profilePage = profileReducer(this._state.profilePage, action)
+        this._state.messagesPage = messagesReducer(this._state.messagesPage, action)
+        this._callSubscriber(this._state)
     }
 }
 
@@ -143,16 +120,18 @@ export type FriendType = {
     name: string
 }
 export type StateType = {
-    messagesPage: {
-        currentTextareaValue: string
-        messagesData: MessageType[]
-    }
-    profilePage: {
-        currentTextareaValue: string
-        postsData: PostType[]
-    }
+    messagesPage: MessagesPageType
+    profilePage: ProfilePageType
     usersData: UserType[]
     friendsData: FriendType[]
+}
+export type ProfilePageType = {
+    currentTextareaValue: string
+    postsData: PostType[]
+}
+export type MessagesPageType = {
+    currentTextareaValue: string
+    messagesData: MessageType[]
 }
 type StoreType = {
     _state: StateType
@@ -161,7 +140,6 @@ type StoreType = {
     subscribe: (callback: (state: StateType) => void) => void
     dispatch: (action: ActionsType) => void
 }
-
 export type ActionsType =
     | ReturnType<typeof UpdateNewPostTextAC>
     | ReturnType<typeof UpdateNewMessageTextAC>
