@@ -133,7 +133,7 @@ export type MessagesPageType = {
     currentTextareaValue: string
     messagesData: MessageType[]
 }
-type StoreType = {
+export type StoreType = {
     _state: StateType
     getState: () => StateType
     _callSubscriber: (state: StateType) => void
