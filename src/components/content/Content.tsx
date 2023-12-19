@@ -3,28 +3,21 @@ import {Redirect, Route} from 'react-router-dom';
 import styled from 'styled-components';
 import {myTheme} from '../../styles/Theme.styled';
 import {AppPropsType} from '../../App';
-import {Profile} from '../profile/Profile';
-import {Dialogs} from '../dialogs/Dialogs';
 import {Settings} from '../settings/Settings';
 import {Friends} from '../friends/Friends';
+import {ProfileContainer} from '../profile/ProfileContainer';
+import {DialogsContainer} from '../dialogs/DialogsContainer';
 
 export const Content: React.FC<AppPropsType> = (props) => {
     return (
         <StyledSection>
             <Redirect exact from="/" to="/profile"/>
             <Route path="/profile" component={() =>
-                <Profile
-                    dispatch={props.dispatch}
-                    currentPostValue={props.state.profilePage.currentTextareaValue}
-                    postsData={props.state.profilePage.postsData}/>}/>
+                <ProfileContainer store={{...props.store}}/>}/>
             <Route path="/dialogs" component={() =>
-                <Dialogs currentPostValue={props.state.messagesPage.currentTextareaValue}
-                         usersData={props.state.usersData}
-                         messagesData={props.state.messagesPage.messagesData}
-                         dispatch={props.dispatch}
-                />}/>
+                <DialogsContainer store={{...props.store}}/>}/>
             <Route path="/friends" render={() =>
-                <Friends friendsData={props.state.friendsData}/>}/>
+                <Friends friendsData={props.store.getState().friendsData}/>}/>
             <Route path="/settings" render={() =>
                 <Settings/>}/>
         </StyledSection>

@@ -3,6 +3,7 @@ import {profileReducer} from './profile-reducer';
 import {messagesReducer} from './messages-reducer';
 import {usersReducer} from './users-reducer';
 import {friendsReducer} from './friends-reducer';
+import {StoreType} from './store';
 
 let reducers = combineReducers(
     {
@@ -13,6 +14,6 @@ let reducers = combineReducers(
     }
 )
 
-let store = createStore(reducers)
+let store: StoreType = createStore(reducers)
 
 export default store

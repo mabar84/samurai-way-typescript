@@ -8,10 +8,7 @@ export const Main: React.FC<AppPropsType> = (props) => {
     return (
         <StyledMain className={'container'}>
             <Sidebar/>
-            <Content
-                state={{...props.state}}
-                dispatch={props.dispatch}
-            />
+            <Content store={{...props.store}}/>
         </StyledMain>
     );
 };

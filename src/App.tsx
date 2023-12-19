@@ -3,11 +3,10 @@ import './App.css';
 import {Header} from './components/header/Header';
 import {GlobalStyles} from './styles/GlobalStyles';
 import {Main} from './components/main/Main';
-import {ActionsType, StateType,} from './store/store';
+import {StoreType,} from './store/store';
 
 export type AppPropsType = {
-    state: StateType
-    dispatch: (action: ActionsType) => void
+    store: StoreType
 }
 
 export const App: React.FC<AppPropsType> = (props) => {
@@ -15,9 +14,7 @@ export const App: React.FC<AppPropsType> = (props) => {
         <div className="App">
             <GlobalStyles/>
             <Header/>
-            <Main
-                dispatch={props.dispatch}
-                state={{...props.state}}/>
+            <Main store={{...props.store}}/>
         </div>
     );
 }
