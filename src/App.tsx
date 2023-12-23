@@ -9,12 +9,12 @@ export type AppPropsType = {
     store: StoreType
 }
 
-export const App: React.FC<AppPropsType> = (props) => {
+export const App = () => {
     return (
         <div className="App">
             <GlobalStyles/>
             <Header/>
-            <Main store={{...props.store}}/>
+            <Main/>
         </div>
     );
 }

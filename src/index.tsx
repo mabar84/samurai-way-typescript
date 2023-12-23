@@ -5,12 +5,16 @@ import {StateType} from './store/store';
 import ReactDOM from 'react-dom';
 import {BrowserRouter} from 'react-router-dom';
 import {App} from './App';
+import {Provider} from './StoreContext';
 
 const rerenderEntireTree = (state: StateType) => {
     console.log('rrrrrrrrr')
     ReactDOM.render(
         <BrowserRouter>
-            <App store={store}/>
+            <Provider store={store}>
+                <App/>
+            </Provider>
+
         </BrowserRouter>,
         document.getElementById('root')
     )

@@ -4,11 +4,11 @@ import {Content} from '../content/Content';
 import {Sidebar} from '../sidebar/Sidebar';
 import {AppPropsType} from '../../App';
 
-export const Main: React.FC<AppPropsType> = (props) => {
+export const Main = () => {
     return (
         <StyledMain className={'container'}>
             <Sidebar/>
-            <Content store={{...props.store}}/>
+            <Content/>
         </StyledMain>
     );
 };
