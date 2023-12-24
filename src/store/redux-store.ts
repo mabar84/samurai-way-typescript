@@ -5,7 +5,7 @@ import {usersReducer} from './users-reducer';
 import {friendsReducer} from './friends-reducer';
 import {StoreType} from './store';
 
-let reducers = combineReducers(
+let rootReducer = combineReducers(
     {
         profilePage: profileReducer,
         messagesPage: messagesReducer,
@@ -14,6 +14,6 @@ let reducers = combineReducers(
     }
 )
 
-let store: StoreType = createStore(reducers)
+export type AppStateType = ReturnType<typeof rootReducer>
 
-export default store
+export const store: StoreType = createStore(rootReducer)

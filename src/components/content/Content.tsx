@@ -2,7 +2,6 @@ import React from 'react';
 import {Redirect, Route} from 'react-router-dom';
 import styled from 'styled-components';
 import {myTheme} from '../../styles/Theme.styled';
-import {AppPropsType} from '../../App';
 import {Settings} from '../settings/Settings';
 import {Friends} from '../friends/Friends';
 import {ProfileContainer} from '../profile/ProfileContainer';

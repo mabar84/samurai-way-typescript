@@ -1,5 +1,6 @@
 import {profileReducer} from './profile-reducer';
 import {messagesReducer} from './messages-reducer';
+import {AppStateType} from './redux-store';
 
 export let store: StoreType = {
     _state: {
@@ -89,9 +90,9 @@ export let store: StoreType = {
     getState() {
         return this._state
     },
-    _callSubscriber(state: StateType) {
+    _callSubscriber(state: AppStateType) {
     },
-    subscribe(observer: (state: StateType) => void) {
+    subscribe(observer: (state: AppStateType) => void) {
         this._callSubscriber = observer
     },
     dispatch(action: ActionsType) {
