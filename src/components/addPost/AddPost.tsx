@@ -7,24 +7,29 @@ import {ActionsType, AddPostAC, UpdateNewPostTextAC} from '../../store/store';
 
 type AddPostPropsType = {
     currentPostValue: string
-    dispatch: (action: ActionsType) => void
+    // dispatch: (action: ActionsType) => void
+    sendPostClick: () => void
+    updateNewMessage: (text: string) => void
 }
 
 export const AddPost: React.FC<AddPostPropsType> = (props) => {
 
     const addPost = () => {
-        props.dispatch(AddPostAC())
+        // props.dispatch(AddPostAC())
+        props.sendPostClick()
     }
 
     const clearPost = () => {
-        props.dispatch(UpdateNewPostTextAC(''))
+        // props.dispatch(UpdateNewPostTextAC(''))
+        props.updateNewMessage('')
     }
 
     return (
         <StyledAddPost className={'addPost'}>
             <Textarea
                 actionType={'UPDATE-NEW-POST-TEXT'}
-                dispatch={props.dispatch}
+                // dispatch={props.dispatch}
+                updateNewMessage={props.updateNewMessage}
                 currentPostValue={props.currentPostValue}
                 placeholder={'Can\'t keep something in yourself?'}/>
 

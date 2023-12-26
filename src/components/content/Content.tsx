@@ -6,28 +6,21 @@ import {Settings} from '../settings/Settings';
 import {Friends} from '../friends/Friends';
 import {ProfileContainer} from '../profile/ProfileContainer';
 import {DialogsContainer} from '../dialogs/DialogsContainer';
-import StoreContext from '../../StoreContext';
+// import StoreContext from '../../StoreContext';
 
 export const Content = () => {
     return (
-        <StoreContext.Consumer>
-            {(store) => {
-                let state = store.getState()
-
-                return <StyledSection>
-                    <Redirect exact from="/" to="/profile"/>
-                    <Route path="/profile" component={() =>
-                        <ProfileContainer store={store}/>}/>
-                    <Route path="/dialogs" component={() =>
-                        <DialogsContainer store={store}/>}/>
-                    <Route path="/friends" render={() =>
-                        <Friends friendsData={state.friendsData}/>}/>
-                    <Route path="/settings" render={() =>
-                        <Settings/>}/>
-                </StyledSection>
-            }
-            }
-        </StoreContext.Consumer>
+        <StyledSection>
+            <Redirect exact from="/" to="/profile"/>
+            <Route path="/profile" component={() =>
+                <ProfileContainer/>}/>
+            <Route path="/dialogs" component={() =>
+                <DialogsContainer/>}/>
+            {/*<Route path="/friends" render={() =>*/}
+            {/*    <Friends friendsData={state.friendsData}/>}/>*/}
+            <Route path="/settings" render={() =>
+                <Settings/>}/>
+        </StyledSection>
     );
 };
 

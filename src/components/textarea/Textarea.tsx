@@ -6,20 +6,25 @@ import {ActionsType} from '../../store/store';
 type TextareaPropsType = {
     placeholder: string
     currentPostValue: string
-    dispatch: (action: ActionsType) => void
+    // dispatch: (action: ActionsType) => void
+    updateNewMessage: (text: string) => void
     actionType: 'UPDATE-NEW-MESSAGE-TEXT' | 'UPDATE-NEW-POST-TEXT'
 }
 
 export const Textarea = (props: TextareaPropsType) => {
 
     const onChangeHandler = (e: ChangeEvent<HTMLTextAreaElement>) => {
-        props.dispatch({type: props.actionType, newText: e.currentTarget.value})
+        // props.dispatch({type: props.actionType, newText: e.currentTarget.value})
+        props.updateNewMessage(e.currentTarget.value)
+        console.log(123)
     }
 
 
     return (
-        <StyledTextarea onChange={onChangeHandler} value={props.currentPostValue}
-                        placeholder={props.placeholder}>
+        <StyledTextarea
+            onChange={onChangeHandler}
+            value={props.currentPostValue}
+            placeholder={props.placeholder}>
         </StyledTextarea>
     );
 };

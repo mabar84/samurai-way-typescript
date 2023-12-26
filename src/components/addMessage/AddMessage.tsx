@@ -7,24 +7,27 @@ import {ActionsType, AddMessageAC, UpdateNewMessageTextAC} from '../../store/sto
 
 type AddMessagePropsType = {
     currentPostValue: string
-    dispatch: (action: ActionsType) => void
+    // dispatch: (action: ActionsType) => void
+    sendMessageClick: () => void
+    updateNewMessage: (text: string) => void
 }
 
 export const AddMessage: React.FC<AddMessagePropsType> = (props) => {
 
     const addMessage = () => {
-        props.dispatch(AddMessageAC())
+        props.sendMessageClick()
     }
 
     const clearMessage = () => {
-        props.dispatch(UpdateNewMessageTextAC(''))
+        props.updateNewMessage('')
     }
 
     return (
         <StyledAddPost className={'addPost'}>
             <Textarea
                 actionType={'UPDATE-NEW-MESSAGE-TEXT'}
-                dispatch={props.dispatch}
+                // dispatch={props.dispatch}
+                updateNewMessage={props.updateNewMessage}
                 currentPostValue={props.currentPostValue}
                 placeholder={'Can\'t keep something in yourself?'}/>
 

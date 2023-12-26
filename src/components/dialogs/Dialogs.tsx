@@ -9,8 +9,12 @@ type DialogsPropsType = {
     messagesData: MessageType[]
     usersData: UserType[]
     currentPostValue: string
-    dispatch: (action: ActionsType) => void
+    // dispatch: (action: ActionsType) => void
+    sendMessageClick: () => void
+    updateNewMessage: (text: string) => void
+
 }
+
 
 export const Dialogs: React.FC<DialogsPropsType> = (props) => {
     return (
@@ -23,7 +27,8 @@ export const Dialogs: React.FC<DialogsPropsType> = (props) => {
 
 
             <AddMessage
-                dispatch={props.dispatch} currentPostValue={props.currentPostValue}/>
+                updateNewMessage={props.updateNewMessage}
+                sendMessageClick={props.sendMessageClick} currentPostValue={props.currentPostValue}/>
         </StyledDialogs>
     );
 };
