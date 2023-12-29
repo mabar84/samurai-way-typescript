@@ -16,7 +16,6 @@ export const Textarea = (props: TextareaPropsType) => {
     const onChangeHandler = (e: ChangeEvent<HTMLTextAreaElement>) => {
         // props.dispatch({type: props.actionType, newText: e.currentTarget.value})
         props.updateNewMessage(e.currentTarget.value)
-        console.log(123)
     }
 
 
