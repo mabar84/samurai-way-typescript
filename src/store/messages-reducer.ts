@@ -26,14 +26,12 @@ export const messagesReducer = (state: MessagesPageType = initialState, action: 
         case 'UPDATE-NEW-MESSAGE-TEXT':
             return {...state, currentTextareaValue: action.newText}
         case 'ADD-MESSAGE': {
-            const newMessage: MessageType = {
-                id: state.messagesData.length + 1,
-                message: state.currentTextareaValue,
-                isMine: true
+            return {
+                ...state,
+                messagesData: [...state.messagesData,
+                    {id: state.messagesData.length + 1, message: state.currentTextareaValue, isMine: true}],
+                currentTextareaValue: ''
             }
-            state.messagesData.push(newMessage)
-            state.currentTextareaValue = ''
-            return state
         }
         default:
             return state
