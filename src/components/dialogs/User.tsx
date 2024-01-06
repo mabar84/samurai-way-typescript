@@ -4,7 +4,7 @@ import {styled} from 'styled-components';
 import {myTheme} from '../../styles/Theme.styled';
 
 type UserPropsType = {
-    id: number
+    id: string
     name: string
 }
 

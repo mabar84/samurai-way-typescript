@@ -6,7 +6,6 @@ import {Settings} from '../settings/Settings';
 import {Friends} from '../friends/Friends';
 import {ProfileContainer} from '../profile/ProfileContainer';
 import {DialogsContainer} from '../dialogs/DialogsContainer';
-// import StoreContext from '../../StoreContext';
 
 export const Content = () => {
     return (
@@ -16,8 +15,8 @@ export const Content = () => {
                 <ProfileContainer/>}/>
             <Route path="/dialogs" component={() =>
                 <DialogsContainer/>}/>
-            {/*<Route path="/friends" render={() =>*/}
-            {/*    <Friends friendsData={state.friendsData}/>}/>*/}
+            <Route path="/friends" render={() =>
+                <Friends/>}/>
             <Route path="/settings" render={() =>
                 <Settings/>}/>
         </StyledSection>
