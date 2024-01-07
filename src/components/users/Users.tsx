@@ -1,19 +1,19 @@
-import React, {useEffect, useState} from 'react';
-import {useSelector} from 'react-redux';
-import {UserType} from '../../store/store';
+import React, {useEffect,} from 'react';
+import {useDispatch, useSelector} from 'react-redux';
+import {SetUsersAC, UserType} from '../../store/store';
 import {AppStateType} from '../../store/redux-store';
 import {User} from './User';
 import axios from 'axios';
 
-export const Users = () => {
-    const initialUsers = useSelector<AppStateType, UserType[]>(state => state.usersData)
 
-    const [users, setUsers] = useState(initialUsers)
+export const Users = () => {
+    let users = useSelector<AppStateType, UserType[]>(state => state.usersData)
+    const dispatch = useDispatch()
 
     useEffect(() => {
         axios.get('https://social-network.samuraijs.com/api/1.0/users')
             .then(res => {
-                setUsers(res.data.items)
+                dispatch(SetUsersAC(res.data.items))
             })
     }, [])
 
