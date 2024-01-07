@@ -38,14 +38,14 @@ export type MessageType = {
 }
 export type UserType = {
     id: string
-    fullName: string
+    name: string
     status: string
     followed: boolean
-    photoUrl: string
-    location: {
-        city: string
-        country: string
+    photos: {
+        small: string
+        large: string
     }
+
 }
 export type PartnerType = {
     id: string

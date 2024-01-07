@@ -7,9 +7,9 @@ export const Header = () => {
     return (
         <StyledHeader>
             <div className="container">
-                123
+                Samurai
                 <Logo/>
-                23423
+                Way
             </div>
         </StyledHeader>
     );
