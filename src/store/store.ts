@@ -13,7 +13,8 @@ export let store: StoreType = {
             currentTextareaValue: '',
         },
         usersData: [],
-        friendsData: []
+        friendsData: [],
+        partnersData: []
     },
     getState() {
         return this._state
@@ -37,9 +38,10 @@ export type MessageType = {
 }
 export type UserType = {
     id: string
-    name: string
+    fullName: string
     status: string
     followed: boolean
+    photoUrl: string
     location: {
         city: string
         country: string
@@ -63,6 +65,7 @@ export type StateType = {
     profilePage: ProfilePageType
     usersData: UserType[]
     friendsData: FriendType[]
+    partnersData: PartnerType[]
 }
 export type ProfilePageType = {
     currentTextareaValue: string

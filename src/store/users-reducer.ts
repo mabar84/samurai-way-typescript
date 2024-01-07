@@ -1,46 +1,17 @@
 import {ActionsType, UserType} from './store';
 
-const initialState = [
+const initialState: UserType[] = [
     {
         id: '1',
-        name: 'Petr',
+        fullName: 'Dima 1',
+        status: 'ok',
         followed: true,
-        status: 'ok',
+        photoUrl: 'https://avatars.akamai.steamstatic.com/b6a9e86053fc4a7d906c199a8535563d00a2df07_medium.jpg',
         location: {
             city: 'Minsk',
             country: 'Belarus'
         }
-    },
-    {
-        id: '2',
-        name: 'Aramis',
-        followed: true,
-        status: 'ok',
-        location: {
-            city: 'Minsk',
-            country: 'Belarus'
-        }
-    },
-    {
-        id: '3',
-        name: 'Goofy',
-        followed: false,
-        status: 'ok',
-        location: {
-            city: 'Minsk',
-            country: 'Belarus'
-        }
-    },
-    {
-        id: '4',
-        name: 'Donatello',
-        followed: true,
-        status: 'ok',
-        location: {
-            city: 'Minsk',
-            country: 'Belarus'
-        }
-    },
+    }
 ]
 
 export const usersReducer = (state: UserType[] = initialState, action: ActionsType): UserType[] => {

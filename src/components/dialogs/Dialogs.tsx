@@ -2,23 +2,22 @@ import React from 'react';
 import {styled} from 'styled-components';
 import {Partners} from './Partners';
 import {Messages} from './Messages';
-import {MessageType, UserType} from '../../store/store';
+import {MessageType, PartnerType} from '../../store/store';
 import {AddMessage} from '../addMessage/AddMessage';
 
 type DialogsPropsType = {
     messagesData: MessageType[]
-    usersData: UserType[]
+    partnersData: PartnerType[]
     currentPostValue: string
     updateNewMessage: (text: string) => void
     sendMessageClick: () => void
 }
 
-
 export const Dialogs: React.FC<DialogsPropsType> = (props) => {
     return (
         <StyledDialogs>
             <div className="grid">
-                <Partners usersData={props.usersData}/>
+                <Partners usersData={props.partnersData}/>
                 <Messages messagesData={props.messagesData}/>
             </div>
 
@@ -46,9 +45,4 @@ const StyledDialogs = styled.div`
   .addPost {
     width: 100%;
   }
-
-
-
-
-
 `

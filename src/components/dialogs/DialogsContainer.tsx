@@ -1,5 +1,4 @@
 import React from 'react';
-import {AppPropsType} from '../../App';
 import {Dialogs} from './Dialogs';
 import {AppStateType} from '../../store/redux-store';
 import {Dispatch} from 'redux';
@@ -15,7 +14,7 @@ import {connect} from 'react-redux';
 
 const mapStateToProps = (state: AppStateType) => {
     return {
-        usersData: state.usersData,
+        partnersData: state.partnersData,
         messagesData: state.messagesPage.messagesData,
         currentPostValue: state.messagesPage.currentTextareaValue
     }

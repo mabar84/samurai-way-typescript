@@ -1,10 +1,10 @@
 import React from 'react';
 import {styled} from 'styled-components';
 import {Partner} from './Partner';
-import {UserType} from '../../store/store';
+import {PartnerType} from '../../store/store';
 
 type UsersPropsType = {
-    usersData: UserType[]
+    usersData: PartnerType[]
 }
 
 export const Partners: React.FC<UsersPropsType> = (props) => {

@@ -3,14 +3,15 @@ import {profileReducer} from './profile-reducer';
 import {messagesReducer} from './messages-reducer';
 import {usersReducer} from './users-reducer';
 import {friendsReducer} from './friends-reducer';
-import {StoreType} from './store';
+import {partnersReducer} from './partners-reducer';
 
 let rootReducer = combineReducers(
     {
         profilePage: profileReducer,
         messagesPage: messagesReducer,
         usersData: usersReducer,
-        friendsData: friendsReducer
+        friendsData: friendsReducer,
+        partnersData: partnersReducer
     }
 )
 

@@ -19,7 +19,7 @@ const initialState = [
     },
 ]
 
-export const usersReducer = (state: PartnerType[] = initialState, action: ActionsType): PartnerType[] => {
+export const partnersReducer = (state: PartnerType[] = initialState, action: ActionsType): PartnerType[] => {
     switch (action.type) {
         default:
             return state
