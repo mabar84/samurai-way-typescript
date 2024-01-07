@@ -45,6 +45,10 @@ export type UserType = {
         country: string
     }
 }
+export type PartnerType = {
+    id: string
+    name: string
+}
 export type PostType = {
     id: number
     post: string
@@ -82,6 +86,7 @@ export type ActionsType =
     | ReturnType<typeof AddPostAC>
     | ReturnType<typeof FollowAC>
     | ReturnType<typeof UnFollowAC>
+    | ReturnType<typeof SetUsersAC>
 
 export const UpdateNewPostTextAC = (newText: string) =>
     ({type: 'UPDATE-NEW-POST-TEXT' as const, newText: newText})
@@ -91,3 +96,4 @@ export const AddPostAC = () => ({type: 'ADD-POST' as const})
 export const AddMessageAC = () => ({type: 'ADD-MESSAGE' as const})
 export const FollowAC = (userId: string) => ({type: 'FOLLOW' as const, userId})
 export const UnFollowAC = (userId: string) => ({type: 'UNFOLLOW' as const, userId})
+export const SetUsersAC = (users: UserType[]) => ({type: 'SET-USERS' as const, users})

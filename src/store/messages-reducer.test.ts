@@ -1,4 +1,4 @@
-import {AddMessageAC, AddPostAC} from './store';
+import {AddMessageAC} from './store';
 import {messagesReducer} from './messages-reducer';
 
 test('new post text should be added', () => {

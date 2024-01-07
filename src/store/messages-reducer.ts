@@ -1,4 +1,4 @@
-import {ActionsType, MessagesPageType, MessageType} from './store';
+import {ActionsType, MessagesPageType} from './store';
 
 const initialState = {
     currentTextareaValue: '',

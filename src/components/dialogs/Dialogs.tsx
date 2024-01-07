@@ -1,18 +1,16 @@
 import React from 'react';
 import {styled} from 'styled-components';
-import {Users} from './Users';
+import {Partners} from './Partners';
 import {Messages} from './Messages';
-import {ActionsType, MessageType, UserType} from '../../store/store';
+import {MessageType, UserType} from '../../store/store';
 import {AddMessage} from '../addMessage/AddMessage';
 
 type DialogsPropsType = {
     messagesData: MessageType[]
     usersData: UserType[]
     currentPostValue: string
-    // dispatch: (action: ActionsType) => void
-    sendMessageClick: () => void
     updateNewMessage: (text: string) => void
-
+    sendMessageClick: () => void
 }
 
 
@@ -20,15 +18,14 @@ export const Dialogs: React.FC<DialogsPropsType> = (props) => {
     return (
         <StyledDialogs>
             <div className="grid">
-                <Users usersData={props.usersData}/>
-
+                <Partners usersData={props.usersData}/>
                 <Messages messagesData={props.messagesData}/>
             </div>
 
-
             <AddMessage
                 updateNewMessage={props.updateNewMessage}
-                sendMessageClick={props.sendMessageClick} currentPostValue={props.currentPostValue}/>
+                sendMessageClick={props.sendMessageClick}
+                currentPostValue={props.currentPostValue}/>
         </StyledDialogs>
     );
 };

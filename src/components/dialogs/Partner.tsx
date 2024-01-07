@@ -8,7 +8,7 @@ type UserPropsType = {
     name: string
 }
 
-export const User = (props: UserPropsType) => {
+export const Partner = (props: UserPropsType) => {
     return (
         <StyledUser>
             <NavLink to={`/dialogs/${props.id}`}>{props.name}</NavLink>
