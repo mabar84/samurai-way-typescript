@@ -3,11 +3,11 @@ import {styled} from 'styled-components';
 import {Partner} from './Partner';
 import {PartnerType} from '../../store/store';
 
-type UsersPropsType = {
+type PartnersPropsType = {
     usersData: PartnerType[]
 }
 
-export const Partners: React.FC<UsersPropsType> = (props) => {
+export const Partners: React.FC<PartnersPropsType> = (props) => {
 
     return (
         <StyledUsers>

@@ -3,7 +3,6 @@ import {styled} from 'styled-components';
 import {Textarea} from '../textarea/Textarea';
 import {Button} from '../button/button';
 import {myTheme} from '../../styles/Theme.styled';
-import {ActionsType, AddMessageAC, UpdateNewMessageTextAC} from '../../store/store';
 
 type AddMessagePropsType = {
     currentPostValue: string

@@ -11,6 +11,17 @@ const initialState: UserType[] = [
             city: 'Minsk',
             country: 'Belarus'
         }
+    },
+    {
+        id: '2',
+        fullName: 'Dima 2',
+        status: 'ok',
+        followed: false,
+        photoUrl: 'https://avatars.akamai.steamstatic.com/b6a9e86053fc4a7d906c199a8535563d00a2df07_medium.jpg',
+        location: {
+            city: 'Minsk',
+            country: 'Belarus'
+        }
     }
 ]
 
