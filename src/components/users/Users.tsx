@@ -5,7 +5,6 @@ import {AppStateType} from '../../store/redux-store';
 import {User} from './User';
 import axios from 'axios';
 
-
 export const Users = () => {
     let users = useSelector<AppStateType, UserType[]>(state => state.usersData)
     const dispatch = useDispatch()

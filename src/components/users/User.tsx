@@ -16,7 +16,6 @@ export const User: React.FC<userPropsType> = (props) => {
     const unfollowClickHandler = () => dispatch(UnFollowAC(user.id))
     const followClickHandler = () => dispatch(FollowAC(user.id))
 
-
     return (
         <div className={s.user}>
             <div className={s.left}>
@@ -27,14 +26,10 @@ export const User: React.FC<userPropsType> = (props) => {
                     ? <Button buttonName={'Unfollow'} onClick={unfollowClickHandler}/>
                     : <Button buttonName={'Follow'} onClick={followClickHandler}/>}
             </div>
-            <div className={s.right}>
+            <div>
                 <div>
                     <p>{user.name}</p>
-                    <p>{user.status}</p>
-                </div>
-                <div className={s.location}>
-                    {/*<p>{user.location.country}</p>*/}
-                    {/*<p>{user.location.city}</p>*/}
+                    <p>{user.status || 'I do not have any status'}</p>
                 </div>
             </div>
 

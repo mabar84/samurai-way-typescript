@@ -19,21 +19,5 @@
       min-width: unset;
       width: 100%;
     }
-
-  }
-
-  .right {
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
-    width: 100%;
-
-    p {
-      margin-bottom: 10px;
-    }
-
-    .location {
-      text-align: right;
-    }
   }
 }
