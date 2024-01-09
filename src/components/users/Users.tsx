@@ -9,27 +9,40 @@ type UsersPropsType = {
     setUsers: (users: UserType[]) => void
 }
 
-export const Users: React.FC<UsersPropsType> = (props) => {
+export class Users extends React.Component<UsersPropsType> {
     // let users = useSelector<AppStateType, UserType[]>(state => state.usersData)
     // const dispatch = useDispatch()
 
-    const getUsers = () => {
+    constructor(props: UsersPropsType) {
+        super(props);
+        alert('NEW')
         axios.get('https://social-network.samuraijs.com/api/1.0/users')
             .then(res => {
-                props.setUsers(res.data.items)
-                console.log(res.data.items)
+                this.props.setUsers(res.data.items)
                 // dispatch(SetUsersAC(res.data.items))
             })
     }
-    // useEffect(() => {
+
+    // getUsers = () => {
     //     axios.get('https://social-network.samuraijs.com/api/1.0/users')
     //         .then(res => {
-    //             dispatch(SetUsersAC(res.data.items))
+    //             this.props.setUsers(res.data.items)
+    //             // dispatch(SetUsersAC(res.data.items))
     //         })
-    // }, [])
+    // }
 
-    return <>
-        <button onClick={getUsers}>getUsers</button>
-        {props.usersData.map(u => <User key={u.id} user={u}/>)}
-    </>
+    render() {
+        return <>
+            {/*<button onClick={this.getUsers}>getUsers</button>*/}
+            {this.props.usersData.map(u => <User key={u.id} user={u}/>)}
+        </>
+    }
 }
+
+// useEffect(() => {
+//     axios.get('https://social-network.samuraijs.com/api/1.0/users')
+//         .then(res => {
+//             dispatch(SetUsersAC(res.data.items))
+//         })
+// }, [])
+

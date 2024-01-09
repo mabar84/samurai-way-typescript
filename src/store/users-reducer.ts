@@ -11,7 +11,6 @@ export const usersReducer = (state: UserType[] = initialState, action: ActionsTy
             return state.map((u) => u.id === action.userId ? {...u, followed: false} : u)
         }
         case 'SET-USERS': {
-            debugger
             return [...action.users]
         }
         default:
