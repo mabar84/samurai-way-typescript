@@ -6,7 +6,7 @@ import {Settings} from '../settings/Settings';
 import {Friends} from '../friends/Friends';
 import {ProfileContainer} from '../profile/ProfileContainer';
 import {DialogsContainer} from '../dialogs/DialogsContainer';
-import {Users} from '../users/Users';
+import {UsersContainer} from '../users/UsersContainer';
 
 export const Content = () => {
     return (
@@ -17,7 +17,7 @@ export const Content = () => {
             <Route path="/dialogs" component={() =>
                 <DialogsContainer/>}/>
             <Route path="/users" component={() =>
-                <Users/>}/>
+                <UsersContainer/>}/>
             <Route path="/friends" render={() =>
                 <Friends/>}/>
             <Route path="/settings" render={() =>
