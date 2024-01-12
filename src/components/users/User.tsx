@@ -3,7 +3,7 @@ import {UserType} from '../../store/store';
 import s from './User.module.scss'
 import {useDispatch} from 'react-redux';
 import {Button} from '../button/button';
-import {FollowAC, UnFollowAC} from '../../store/users-reducer';
+import {followAC, unFollowAC} from '../../store/users-reducer';
 
 type userPropsType = {
     user: UserType
@@ -14,8 +14,8 @@ export const User: React.FC<userPropsType> = (props) => {
 
     const dispatch = useDispatch()
 
-    const unfollowClickHandler = () => dispatch(UnFollowAC(user.id))
-    const followClickHandler = () => dispatch(FollowAC(user.id))
+    const unfollowClickHandler = () => dispatch(unFollowAC(user.id))
+    const followClickHandler = () => dispatch(followAC(user.id))
 
     return (
         <div className={s.user}>

@@ -12,7 +12,9 @@ export let store: StoreType = {
             postsData: [],
             currentTextareaValue: '',
         },
-        usersData: [],
+        usersPage: {
+            usersData: []
+        },
         friendsData: [],
         partnersData: []
     },
@@ -63,9 +65,12 @@ export type FriendType = {
 export type StateType = {
     messagesPage: MessagesPageType
     profilePage: ProfilePageType
-    usersData: UserType[]
+    usersPage: UsersPageType
     friendsData: FriendType[]
     partnersData: PartnerType[]
+}
+export type UsersPageType = {
+    usersData: UserType[]
 }
 export type ProfilePageType = {
     currentTextareaValue: string

@@ -9,7 +9,7 @@ let rootReducer = combineReducers(
     {
         profilePage: profileReducer,
         messagesPage: messagesReducer,
-        usersData: usersReducer,
+        usersPage: usersReducer,
         friendsData: friendsReducer,
         partnersData: partnersReducer
     }
