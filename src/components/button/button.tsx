@@ -5,6 +5,7 @@ import {myTheme} from '../../styles/Theme.styled';
 type ButtonPropsType = {
     buttonName: string
     onClick: () => void
+    className?: string
 }
 
 export const Button = (props: ButtonPropsType) => {
@@ -14,7 +15,7 @@ export const Button = (props: ButtonPropsType) => {
     }
 
     return (
-        <StyledButton onClick={onClickHandler} className={'styledButton'}>
+        <StyledButton onClick={onClickHandler} className={`styledButton ${props.className}`}>
             {props.buttonName}
         </StyledButton>
     );

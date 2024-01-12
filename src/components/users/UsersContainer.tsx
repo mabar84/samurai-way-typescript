@@ -4,7 +4,7 @@ import {Dispatch} from 'redux';
 import {connect} from 'react-redux';
 import {Users} from './Users';
 import {UserType} from '../../store/store';
-import {setTotalUsersCountAC, setUsersAC} from '../../store/users-reducer';
+import {setCurrentPageAC, setTotalUsersCountAC, setUsersAC} from '../../store/users-reducer';
 
 const mapStateToProps = (state: AppStateType) => {
     return {
@@ -22,6 +22,9 @@ const mapDispatchToProps = (dispatch: Dispatch) => {
         },
         setTotalCount: (totalCount: number) => {
             dispatch(setTotalUsersCountAC(totalCount))
+        },
+        setCurrentPage: (currentPage: number) => {
+            dispatch(setCurrentPageAC(currentPage))
         },
     }
 }
