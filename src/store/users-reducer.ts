@@ -1,4 +1,4 @@
-import {ActionsType, UserType} from './store';
+import {UserType} from './store';
 
 const initialState: UserType[] = []
 
@@ -17,3 +17,12 @@ export const usersReducer = (state: UserType[] = initialState, action: ActionsTy
             return state
     }
 }
+
+type ActionsType =
+    | ReturnType<typeof FollowAC>
+    | ReturnType<typeof UnFollowAC>
+    | ReturnType<typeof SetUsersAC>
+
+export const FollowAC = (userId: string) => ({type: 'FOLLOW' as const, userId})
+export const UnFollowAC = (userId: string) => ({type: 'UNFOLLOW' as const, userId})
+export const SetUsersAC = (users: UserType[]) => ({type: 'SET-USERS' as const, users})

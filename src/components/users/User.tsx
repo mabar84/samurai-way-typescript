@@ -1,8 +1,9 @@
 import React from 'react';
-import {FollowAC, UnFollowAC, UserType} from '../../store/store';
+import {UserType} from '../../store/store';
 import s from './User.module.scss'
 import {useDispatch} from 'react-redux';
 import {Button} from '../button/button';
+import {FollowAC, UnFollowAC} from '../../store/users-reducer';
 
 type userPropsType = {
     user: UserType

@@ -1,9 +1,10 @@
 import React from 'react';
 import {AppStateType} from '../../store/redux-store';
 import {Dispatch} from 'redux';
-import {SetUsersAC, UserType} from '../../store/store';
 import {connect} from 'react-redux';
 import {Users} from './Users';
+import {UserType} from '../../store/store';
+import {SetUsersAC} from '../../store/users-reducer';
 
 const mapStateToProps = (state: AppStateType) => {
     return {
