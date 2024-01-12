@@ -13,7 +13,10 @@ export let store: StoreType = {
             currentTextareaValue: '',
         },
         usersPage: {
-            usersData: []
+            usersData: [],
+            pageSize: 5,
+            totalUsersCount: 25,
+            currentPage: 1
         },
         friendsData: [],
         partnersData: []
@@ -71,6 +74,9 @@ export type StateType = {
 }
 export type UsersPageType = {
     usersData: UserType[]
+    pageSize: number
+    totalUsersCount: number
+    currentPage: number
 }
 export type ProfilePageType = {
     currentTextareaValue: string

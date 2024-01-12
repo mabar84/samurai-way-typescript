@@ -33,8 +33,6 @@ export const User: React.FC<userPropsType> = (props) => {
                     <p>{user.status || 'I do not have any status'}</p>
                 </div>
             </div>
-
-
         </div>
     );
 };

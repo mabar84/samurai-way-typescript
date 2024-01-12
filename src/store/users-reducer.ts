@@ -1,7 +1,10 @@
 import {UsersPageType, UserType} from './store';
 
 const initialState: UsersPageType = {
-    usersData: []
+    usersData: [],
+    pageSize: 5,
+    totalUsersCount: 25,
+    currentPage: 1
 }
 
 export const usersReducer = (state: UsersPageType = initialState, action: ActionsType): UsersPageType => {
@@ -22,7 +25,7 @@ export const usersReducer = (state: UsersPageType = initialState, action: Action
             return {...state, usersData: action.users}
         }
         case 'SET-TOTAL-COUNT': {
-            return state
+            return {...state, totalUsersCount: action.totalCount}
         }
         default:
             return state
