@@ -9,13 +9,8 @@ type UsersPropsType = {
     pageSize: number
     totalUsersCount: number
     currentPage: number
-
-    setUsers: (users: UserType[]) => void
-    setTotalCount: (totalCount: number) => void
-    setCurrentPage: (currentPage: number) => void
     onPageChanged: (p: number) => void
 }
-
 
 export const Users: React.FC<UsersPropsType> = (props) => {
     let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize)

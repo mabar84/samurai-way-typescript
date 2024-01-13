@@ -6,7 +6,7 @@ import {Settings} from '../settings/Settings';
 import {Friends} from '../friends/Friends';
 import {ProfileContainer} from '../profile/ProfileContainer';
 import {DialogsContainer} from '../dialogs/DialogsContainer';
-import {UsersContainer} from '../users/UsersContainer';
+import UsersContainer from '../users/UsersContainer';
 
 export const Content = () => {
     return (
