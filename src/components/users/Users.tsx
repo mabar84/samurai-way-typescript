@@ -3,6 +3,7 @@ import s from './Users.module.scss';
 import {Button} from '../button/button';
 import {User} from './User';
 import {UserType} from '../../store/store';
+import {Preloader} from '../preloader/Preloader';
 
 type UsersPropsType = {
     usersData: UserType[]
@@ -10,6 +11,7 @@ type UsersPropsType = {
     totalUsersCount: number
     currentPage: number
     onPageChanged: (p: number) => void
+    isFetching: boolean
 }
 
 export const Users: React.FC<UsersPropsType> = (props) => {
@@ -19,6 +21,7 @@ export const Users: React.FC<UsersPropsType> = (props) => {
         pages.push(i)
     }
     return <>
+        {props.isFetching ? <Preloader/> : null}
         <div className={s.paginator}>
             {pages.map((p) => <Button key={p} buttonName={p.toString()}
                                       className={props.currentPage === p ? s.selectedPage : ''}
