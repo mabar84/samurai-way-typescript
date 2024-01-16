@@ -4,6 +4,7 @@ import s from './User.module.scss'
 import {useDispatch} from 'react-redux';
 import {Button} from '../button/button';
 import {followAC, unFollowAC} from '../../store/users-reducer';
+import defaultUser from '../../img/small.png'
 
 type userPropsType = {
     user: UserType
@@ -21,7 +22,7 @@ export const User: React.FC<userPropsType> = (props) => {
         <div className={s.user}>
             <div className={s.left}>
                 <img
-                    src={user.photos.small || 'https://avatars.akamai.steamstatic.com/b6a9e86053fc4a7d906c199a8535563d00a2df07_medium.jpg'}
+                    src={user.photos.small || defaultUser}
                     alt="ava"/>
                 {user.followed
                     ? <Button buttonName={'Unfollow'} onClick={unfollowClickHandler}/>

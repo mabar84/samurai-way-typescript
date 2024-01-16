@@ -1,9 +1,8 @@
 import React from 'react';
 import {AppStateType} from '../../store/redux-store';
-import {Dispatch} from 'redux';
 import {connect} from 'react-redux';
 import {UserType} from '../../store/store';
-import {setCurrentPageAC, setTotalUsersCountAC, setUsersAC, toggleIsFetchingAC} from '../../store/users-reducer';
+import {setCurrentPage, setTotalUsersCount, setUsers, toggleIsFetching} from '../../store/users-reducer';
 import axios from 'axios';
 import {Users} from './Users';
 
@@ -15,7 +14,7 @@ type UsersContainerPropsType = {
     isFetching: boolean
 
     setUsers: (users: UserType[]) => void
-    setTotalCount: (totalCount: number) => void
+    setTotalUsersCount: (totalCount: number) => void
     setCurrentPage: (currentPage: number) => void
     toggleIsFetching: (isFetching: boolean) => void
 }
@@ -27,7 +26,7 @@ export class UsersContainer extends React.Component<UsersContainerPropsType> {
             .then(res => {
                 this.props.toggleIsFetching(false)
                 this.props.setUsers(res.data.items)
-                this.props.setTotalCount(res.data.totalCount)
+                this.props.setTotalUsersCount(res.data.totalCount)
             })
     }
 
@@ -38,7 +37,7 @@ export class UsersContainer extends React.Component<UsersContainerPropsType> {
             .then(res => {
                 this.props.toggleIsFetching(false)
                 this.props.setUsers(res.data.items)
-                this.props.setTotalCount(res.data.totalCount)
+                this.props.setTotalUsersCount(res.data.totalCount)
             })
     }
 
@@ -63,21 +62,6 @@ const mapStateToProps = (state: AppStateType) => {
         isFetching: state.usersPage.isFetching
     }
 }
-const mapDispatchToProps = (dispatch: Dispatch) => {
-    return {
-        setUsers: (users: UserType[]) => {
-            dispatch(setUsersAC(users))
-        },
-        setTotalCount: (totalCount: number) => {
-            dispatch(setTotalUsersCountAC(totalCount))
-        },
-        setCurrentPage: (currentPage: number) => {
-            dispatch(setCurrentPageAC(currentPage))
-        },
-        toggleIsFetching: (isFetching: boolean) => {
-            dispatch(toggleIsFetchingAC(isFetching))
-        },
-    }
-}
 
-export default connect(mapStateToProps, mapDispatchToProps)(UsersContainer)
+export default connect(mapStateToProps,
+    {setUsers, setTotalUsersCount, setCurrentPage, toggleIsFetching})(UsersContainer)
