@@ -4,20 +4,22 @@ import styled from 'styled-components';
 import {myTheme} from '../../styles/Theme.styled';
 import {Settings} from '../settings/Settings';
 import {Friends} from '../friends/Friends';
-import {ProfileContainer} from '../profile/ProfileContainer';
 import {DialogsContainer} from '../dialogs/DialogsContainer';
 import UsersContainer from '../users/UsersContainer';
+import ProfileContainer from '../profile/ProfileContainer';
 
 export const Content = () => {
     return (
         <StyledSection>
             <Redirect exact from="/" to="/profile"/>
+
+            <Route path="/users" component={() =>
+                <UsersContainer/>}/>
             <Route path="/profile" component={() =>
                 <ProfileContainer/>}/>
             <Route path="/dialogs" component={() =>
                 <DialogsContainer/>}/>
-            <Route path="/users" component={() =>
-                <UsersContainer/>}/>
+
             <Route path="/friends" render={() =>
                 <Friends/>}/>
             <Route path="/settings" render={() =>

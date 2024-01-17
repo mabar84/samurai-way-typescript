@@ -10,8 +10,8 @@ import {ActionsType, PostType} from '../../store/store';
 type ProfilePropsType = {
     postsData: PostType[]
     currentPostValue: string
-    sendMessageClick: () => void
-    updateNewMessage: (text: string) => void
+    addPost: () => void
+    updateNewPostText: (text: string) => void
 }
 
 export const Profile: React.FC<ProfilePropsType> = (props) => {
@@ -24,8 +24,8 @@ export const Profile: React.FC<ProfilePropsType> = (props) => {
                 <Avatar/>
 
                 <AddPost currentPostValue={props.currentPostValue}
-                         updateNewMessage={props.updateNewMessage}
-                         sendPostClick={props.sendMessageClick}
+                         updateNewMessage={props.updateNewPostText}
+                         sendPostClick={props.addPost}
                 />
             </div>
 

@@ -50,4 +50,4 @@ export type ProfileReducerType =
 
 export const AddPost = () => ({type: 'ADD-POST' as const})
 export const UpdateNewPostText = (newText: string) =>
-    ({type: 'UPDATE-NEW-POST-TEXT' as const, newText: newText})
+    ({type: 'UPDATE-NEW-POST-TEXT' as const, newText})
