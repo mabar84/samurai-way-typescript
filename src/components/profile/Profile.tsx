@@ -5,23 +5,16 @@ import {Avatar} from '../avatar/Avatar';
 import {AddPost} from '../addPost/AddPost';
 import {myTheme} from '../../styles/Theme.styled';
 import {Posts} from '../posts/Posts';
-import {ActionsType, PostType} from '../../store/store';
+import {ProfileContainerPropsType} from './ProfileContainer';
 
-type ProfilePropsType = {
-    postsData: PostType[]
-    currentPostValue: string
-    addPost: () => void
-    updateNewPostText: (text: string) => void
-}
-
-export const Profile: React.FC<ProfilePropsType> = (props) => {
+export const Profile: React.FC<ProfileContainerPropsType> = (props) => {
 
     return (
         <StyledProfile>
             <Image/>
-
+            {props.profile?.aboutMe}
             <div className="flex-container">
-                <Avatar/>
+                <Avatar profile={props.profile}/>
 
                 <AddPost currentPostValue={props.currentPostValue}
                          updateNewMessage={props.updateNewPostText}

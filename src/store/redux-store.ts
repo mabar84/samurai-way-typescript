@@ -18,3 +18,30 @@ let rootReducer = combineReducers(
 export type AppStateType = ReturnType<typeof rootReducer>
 
 export const store = createStore(rootReducer)
+
+//@ts-ignore
+window.store = store
+
+export type asd = {
+    aboutMe: string;
+    contacts: AsdContacts;
+    lookingForAJob: boolean;
+    lookingForAJobDescription: string;
+    fullName: string;
+    userId: number;
+    photos: AsdPhotos;
+}
+export type AsdContacts = {
+    facebook: string;
+    website?: any;
+    vk: string;
+    twitter: string;
+    instagram: string;
+    youtube?: any;
+    github: string;
+    mainLink?: any;
+}
+export type AsdPhotos = {
+    small: string;
+    large: string;
+}

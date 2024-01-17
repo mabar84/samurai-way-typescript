@@ -1,4 +1,4 @@
-import {ActionsType, ProfilePageType} from './store';
+import {ActionsType, ProfilePageType, ProfileType} from './store';
 
 const initialState = {
     postsData: [
@@ -24,13 +24,14 @@ const initialState = {
         },
     ],
     currentTextareaValue: '',
+    profile: null
 }
 
 export const profileReducer = (state: ProfilePageType = initialState, action: ActionsType): ProfilePageType => {
     switch (action.type) {
         case 'UPDATE-NEW-POST-TEXT':
             return {...state, currentTextareaValue: action.newText}
-        case 'ADD-POST': {
+        case 'ADD-POST':
             return {
                 ...state,
                 postsData: [...state.postsData,
@@ -38,16 +39,19 @@ export const profileReducer = (state: ProfilePageType = initialState, action: Ac
                 ],
                 currentTextareaValue: ''
             }
-        }
+        case 'SET-USER-PROFILE':
+            return {...state, profile: action.profile}
         default:
             return state
     }
 }
 
 export type ProfileReducerType =
-    | ReturnType<typeof UpdateNewPostText>
-    | ReturnType<typeof AddPost>
+    | ReturnType<typeof updateNewPostText>
+    | ReturnType<typeof addPost>
+    | ReturnType<typeof setUserProfile>
 
-export const AddPost = () => ({type: 'ADD-POST' as const})
-export const UpdateNewPostText = (newText: string) =>
+export const addPost = () => ({type: 'ADD-POST' as const})
+export const setUserProfile = (profile: ProfileType) => ({type: 'SET-USER-PROFILE' as const, profile})
+export const updateNewPostText = (newText: string) =>
     ({type: 'UPDATE-NEW-POST-TEXT' as const, newText})

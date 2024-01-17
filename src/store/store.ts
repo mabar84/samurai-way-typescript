@@ -12,6 +12,7 @@ export let store: StoreType = {
         profilePage: {
             postsData: [],
             currentTextareaValue: '',
+            profile: null
         },
         usersPage: {
             usersData: [],
@@ -84,6 +85,7 @@ export type UsersPageType = {
 export type ProfilePageType = {
     currentTextareaValue: string
     postsData: PostType[]
+    profile: null | ProfileType
 }
 export type MessagesPageType = {
     currentTextareaValue: string
@@ -96,6 +98,28 @@ export type StoreType = {
     subscribe: (callback: (state: StateType) => void) => void
     dispatch: (action: ActionsType) => void
 }
+export type ProfileType = {
+    aboutMe: string;
+    contacts: {
+        facebook: string | null;
+        website: string | null;
+        vk: string | null;
+        twitter: string | null;
+        instagram: string | null;
+        youtube: string | null;
+        github: string | null;
+        mainLink: string | null;
+    };
+    lookingForAJob: boolean;
+    lookingForAJobDescription: string;
+    fullName: string;
+    userId: number;
+    photos: {
+        small: string;
+        large: string;
+    };
+}
+
 
 export type ActionsType =
     | MessagesReducerType
