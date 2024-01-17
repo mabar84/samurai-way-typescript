@@ -1,20 +1,9 @@
 import React from 'react';
-import {AppPropsType} from '../../App';
 import {Profile} from './Profile';
 import {AppStateType} from '../../store/redux-store';
 import {Dispatch} from 'redux';
-import {AddMessageAC, AddPostAC, UpdateNewMessageTextAC, UpdateNewPostTextAC} from '../../store/store';
 import {connect} from 'react-redux';
-import {Dialogs} from '../dialogs/Dialogs';
-
-
-// export const ProfileContainer: React.FC<AppPropsType> = (props) => {
-//     return <Profile postsData={props.store.getState().profilePage.postsData}
-//                     currentPostValue={props.store.getState().profilePage.currentTextareaValue}
-//                     dispatch={props.store.dispatch}
-//     />
-// };
-
+import {AddPost, UpdateNewPostText} from '../../store/profile-reducer';
 
 const mapStateToProps = (state: AppStateType) => {
     return {
@@ -26,10 +15,10 @@ const mapStateToProps = (state: AppStateType) => {
 const mapDispatchToProps = (dispatch: Dispatch) => {
     return {
         sendMessageClick: () => {
-            dispatch(AddPostAC())
+            dispatch(AddPost())
         },
         updateNewMessage: (text: string) => {
-            dispatch(UpdateNewPostTextAC(text))
+            dispatch(UpdateNewPostText(text))
         }
     }
 }

@@ -37,3 +37,13 @@ export const messagesReducer = (state: MessagesPageType = initialState, action: 
             return state
     }
 }
+
+export type MessagesReducerType =
+    | ReturnType<typeof UpdateNewMessageText>
+    | ReturnType<typeof AddMessage>
+
+
+export const UpdateNewMessageText = (newText: string) =>
+    ({type: 'UPDATE-NEW-MESSAGE-TEXT' as const, newText: newText})
+
+export const AddMessage = () => ({type: 'ADD-MESSAGE' as const})

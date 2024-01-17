@@ -2,8 +2,8 @@ import React from 'react';
 import {Dialogs} from './Dialogs';
 import {AppStateType} from '../../store/redux-store';
 import {Dispatch} from 'redux';
-import {AddMessageAC, UpdateNewMessageTextAC} from '../../store/store';
 import {connect} from 'react-redux';
+import {AddMessage, UpdateNewMessageText} from '../../store/messages-reducer';
 
 // export const DialogsContainer: React.FC<AppPropsType> = (props) => {
 //     return <Dialogs usersData={props.store.getState().usersData}
@@ -23,10 +23,10 @@ const mapStateToProps = (state: AppStateType) => {
 const mapDispatchToProps = (dispatch: Dispatch) => {
     return {
         sendMessageClick: () => {
-            dispatch(AddMessageAC())
+            dispatch(AddMessage())
         },
         updateNewMessage: (text: string) => {
-            dispatch(UpdateNewMessageTextAC(text))
+            dispatch(UpdateNewMessageText(text))
         }
     }
 }

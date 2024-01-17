@@ -1,5 +1,4 @@
-import {AddMessageAC} from './store';
-import {messagesReducer} from './messages-reducer';
+import {AddMessage, messagesReducer} from './messages-reducer';
 
 test('new post text should be added', () => {
     const startState = {
@@ -22,7 +21,7 @@ test('new post text should be added', () => {
             },
         ],
     }
-    const endState = messagesReducer(startState, AddMessageAC())
+    const endState = messagesReducer(startState, AddMessage())
 
     expect(endState.currentTextareaValue).toBe('')
     expect(endState.messagesData.length).toBe(4)

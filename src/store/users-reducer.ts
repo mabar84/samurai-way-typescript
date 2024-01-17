@@ -1,4 +1,4 @@
-import {UsersPageType, UserType} from './store';
+import {ActionsType, UsersPageType, UserType} from './store';
 
 const initialState: UsersPageType = {
     usersData: [],
@@ -37,7 +37,7 @@ export const usersReducer = (state: UsersPageType = initialState, action: Action
     }
 }
 
-type ActionsType =
+export type UsersReducerType =
     | ReturnType<typeof followAC>
     | ReturnType<typeof unFollowAC>
     | ReturnType<typeof setUsers>

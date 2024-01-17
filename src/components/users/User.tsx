@@ -5,6 +5,7 @@ import {useDispatch} from 'react-redux';
 import {Button} from '../button/button';
 import {followAC, unFollowAC} from '../../store/users-reducer';
 import defaultUser from '../../img/small.png'
+import {NavLink} from 'react-router-dom';
 
 type userPropsType = {
     user: UserType
@@ -21,9 +22,12 @@ export const User: React.FC<userPropsType> = (props) => {
     return (
         <div className={s.user}>
             <div className={s.left}>
-                <img
-                    src={user.photos.small || defaultUser}
-                    alt="ava"/>
+                <NavLink to={'/profile/' + user.id}>
+                    <img
+                        src={user.photos.small || defaultUser}
+                        alt="ava"/>
+                </NavLink>
+
                 {user.followed
                     ? <Button buttonName={'Unfollow'} onClick={unfollowClickHandler}/>
                     : <Button buttonName={'Follow'} onClick={followClickHandler}/>}

@@ -1,4 +1,4 @@
-import {ActionsType, PostType, ProfilePageType} from './store';
+import {ActionsType, ProfilePageType} from './store';
 
 const initialState = {
     postsData: [
@@ -43,3 +43,11 @@ export const profileReducer = (state: ProfilePageType = initialState, action: Ac
             return state
     }
 }
+
+export type ProfileReducerType =
+    | ReturnType<typeof UpdateNewPostText>
+    | ReturnType<typeof AddPost>
+
+export const AddPost = () => ({type: 'ADD-POST' as const})
+export const UpdateNewPostText = (newText: string) =>
+    ({type: 'UPDATE-NEW-POST-TEXT' as const, newText: newText})

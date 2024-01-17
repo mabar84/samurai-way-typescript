@@ -1,5 +1,4 @@
-import {profileReducer} from './profile-reducer';
-import {AddPostAC} from './store';
+import {AddPost, profileReducer} from './profile-reducer';
 
 test('new post text should be added', () => {
     const startState = {
@@ -27,7 +26,7 @@ test('new post text should be added', () => {
         ],
         currentTextareaValue: 'Some new post',
     }
-    const endState = profileReducer(startState, AddPostAC())
+    const endState = profileReducer(startState, AddPost())
 
     expect(endState.currentTextareaValue).toBe('')
     expect(endState.postsData.length).toBe(5)

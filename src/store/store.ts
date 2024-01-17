@@ -1,6 +1,7 @@
-import {profileReducer} from './profile-reducer';
-import {messagesReducer} from './messages-reducer';
+import {profileReducer, ProfileReducerType} from './profile-reducer';
+import {messagesReducer, MessagesReducerType} from './messages-reducer';
 import {AppStateType} from './redux-store';
+import {UsersReducerType} from './users-reducer';
 
 export let store: StoreType = {
     _state: {
@@ -95,15 +96,8 @@ export type StoreType = {
     subscribe: (callback: (state: StateType) => void) => void
     dispatch: (action: ActionsType) => void
 }
-export type ActionsType =
-    | ReturnType<typeof UpdateNewPostTextAC>
-    | ReturnType<typeof UpdateNewMessageTextAC>
-    | ReturnType<typeof AddMessageAC>
-    | ReturnType<typeof AddPostAC>
 
-export const UpdateNewPostTextAC = (newText: string) =>
-    ({type: 'UPDATE-NEW-POST-TEXT' as const, newText: newText})
-export const UpdateNewMessageTextAC = (newText: string) =>
-    ({type: 'UPDATE-NEW-MESSAGE-TEXT' as const, newText: newText})
-export const AddPostAC = () => ({type: 'ADD-POST' as const})
-export const AddMessageAC = () => ({type: 'ADD-MESSAGE' as const})
+export type ActionsType =
+    | MessagesReducerType
+    | ProfileReducerType
+    | UsersReducerType
