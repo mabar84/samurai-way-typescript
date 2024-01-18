@@ -12,7 +12,8 @@ export let store: StoreType = {
         profilePage: {
             postsData: [],
             currentTextareaValue: '',
-            profile: null
+            profile: null,
+            userId: 404
         },
         usersPage: {
             usersData: [],
@@ -86,6 +87,7 @@ export type ProfilePageType = {
     currentTextareaValue: string
     postsData: PostType[]
     profile: null | ProfileType
+    userId: number
 }
 export type MessagesPageType = {
     currentTextareaValue: string

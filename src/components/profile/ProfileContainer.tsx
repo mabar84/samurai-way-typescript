@@ -10,22 +10,18 @@ export type ProfileContainerPropsType = {
     profile: ProfileType | null
     postsData: PostType[]
     currentPostValue: string
+    userId: number
     addPost: () => void
     updateNewPostText: (text: string) => void
     setUserProfile: (profile: ProfileType) => void
 }
 
 class ProfileContainer extends React.Component<ProfileContainerPropsType> {
+
     componentDidMount() {
-
-        // this.props.toggleIsFetching(true)
-        axios.get(`https://social-network.samuraijs.com/api/1.0/profile/2`)
+        axios.get(`https://social-network.samuraijs.com/api/1.0/profile/${this.props.userId}`)
             .then(res => {
-
-                console.log(res.data)
-                // this.props.toggleIsFetching(false)
                 this.props.setUserProfile(res.data)
-                // this.props.setTotalUsersCount(res.data.totalCount)
             })
     }
 
@@ -38,7 +34,8 @@ const mapStateToProps = (state: AppStateType) => {
     return {
         postsData: state.profilePage.postsData,
         currentPostValue: state.profilePage.currentTextareaValue,
-        profile: state.profilePage.profile
+        profile: state.profilePage.profile,
+        userId: state.profilePage.userId
     }
 }
 

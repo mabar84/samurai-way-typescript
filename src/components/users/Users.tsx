@@ -20,6 +20,7 @@ export const Users: React.FC<UsersPropsType> = (props) => {
     for (let i = 1; i <= pagesCount; i++) {
         pages.push(i)
     }
+
     return <>
         {props.isFetching ? <Preloader/> : null}
         <div className={s.paginator}>
