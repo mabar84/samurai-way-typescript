@@ -3,7 +3,6 @@ import {AppStateType} from '../../store/redux-store';
 import {connect} from 'react-redux';
 import {UserType} from '../../store/store';
 import {setCurrentPage, setTotalUsersCount, setUsers, toggleIsFetching} from '../../store/users-reducer';
-import axios from 'axios';
 import {Users} from './Users';
 import {usersAPI} from '../../api/api';
 
@@ -18,13 +17,6 @@ type UsersContainerPropsType = {
     setTotalUsersCount: (totalCount: number) => void
     setCurrentPage: (currentPage: number) => void
     toggleIsFetching: (isFetching: boolean) => void
-}
-
-const settings = {
-    withCredentials: true,
-    headers: {
-        'API-KEY': '0088ae57-e9fa-4964-b79a-099d88c982c5'
-    }
 }
 
 class UsersContainer extends React.Component<UsersContainerPropsType> {
