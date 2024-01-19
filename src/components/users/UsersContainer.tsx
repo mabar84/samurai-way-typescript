@@ -5,6 +5,7 @@ import {UserType} from '../../store/store';
 import {setCurrentPage, setTotalUsersCount, setUsers, toggleIsFetching} from '../../store/users-reducer';
 import axios from 'axios';
 import {Users} from './Users';
+import {usersAPI} from '../../api/api';
 
 type UsersContainerPropsType = {
     usersData: UserType[]
@@ -29,7 +30,7 @@ const settings = {
 class UsersContainer extends React.Component<UsersContainerPropsType> {
     componentDidMount() {
         this.props.toggleIsFetching(true)
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`, settings)
+        usersAPI.getUsers(this.props.currentPage, this.props.pageSize)
             .then(res => {
                 this.props.toggleIsFetching(false)
                 this.props.setUsers(res.data.items)
@@ -40,7 +41,7 @@ class UsersContainer extends React.Component<UsersContainerPropsType> {
     onPageChanged = (pageNumber: number) => {
         this.props.toggleIsFetching(true)
         this.props.setCurrentPage(pageNumber)
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageSize}`, settings)
+        usersAPI.getUsers(pageNumber, this.props.pageSize)
             .then(res => {
                 this.props.toggleIsFetching(false)
                 this.props.setUsers(res.data.items)
