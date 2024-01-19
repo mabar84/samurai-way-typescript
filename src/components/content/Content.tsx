@@ -7,6 +7,7 @@ import {Friends} from '../friends/Friends';
 import {DialogsContainer} from '../dialogs/DialogsContainer';
 import UsersContainer from '../users/UsersContainer';
 import ProfileContainer from '../profile/ProfileContainer';
+import {Login} from '../login/Login';
 
 export const Content = () => {
     return (
@@ -24,6 +25,8 @@ export const Content = () => {
                 <Friends/>}/>
             <Route path="/settings" render={() =>
                 <Settings/>}/>
+            <Route path="/login" render={() =>
+                <Login/>}/>
         </StyledSection>
     );
 };
