@@ -1,11 +1,24 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import styled from 'styled-components';
 import {myTheme} from '../../styles/Theme.styled';
 import {Logo} from '../logo/Logo';
 import {NavLink} from 'react-router-dom';
+import axios from 'axios';
+import {useDispatch, useSelector} from 'react-redux';
+import {setUserData} from '../../store/auth-reducer';
+import {AppStateType} from '../../store/redux-store';
+import {AuthType} from '../../store/store';
 
 export const Header = () => {
+    const dispatch = useDispatch()
+    const userData = useSelector<AppStateType, AuthType>(state => state.authData)
 
+    useEffect(() => {
+        axios.get(`https://social-network.samuraijs.com/api/1.0/auth/me`, {withCredentials: true})
+            .then(res => {
+                dispatch(setUserData(res.data.data))
+            })
+    }, [])
 
     return (
         <StyledHeader>
@@ -16,7 +29,7 @@ export const Header = () => {
                         Way
                         <Logo/>
                     </div>
-                    <NavLink to={'/login'}>LogIn</NavLink>
+                    {userData.login ? userData.login : <NavLink to={'/login'}>LogIn</NavLink>}
                 </div>
             </div>
         </StyledHeader>

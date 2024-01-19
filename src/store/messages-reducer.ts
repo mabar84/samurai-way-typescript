@@ -38,7 +38,7 @@ export const messagesReducer = (state: MessagesPageType = initialState, action: 
     }
 }
 
-export type MessagesReducerType =
+export type MessagesReducerActionsType =
     | ReturnType<typeof UpdateNewMessageText>
     | ReturnType<typeof AddMessage>
 

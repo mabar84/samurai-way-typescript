@@ -23,7 +23,6 @@ export const User: React.FC<userPropsType> = (props) => {
         dispatch(setUserId(+props.user.id))
     }
 
-
     return (
         <div className={s.user}>
             <div className={s.left}>

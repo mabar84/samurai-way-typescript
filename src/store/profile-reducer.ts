@@ -49,7 +49,7 @@ export const profileReducer = (state: ProfilePageType = initialState, action: Ac
     }
 }
 
-export type ProfileReducerType =
+export type ProfileReducerActionsType =
     | ReturnType<typeof updateNewPostText>
     | ReturnType<typeof addPost>
     | ReturnType<typeof setUserProfile>

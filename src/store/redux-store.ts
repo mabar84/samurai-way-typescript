@@ -4,6 +4,7 @@ import {messagesReducer} from './messages-reducer';
 import {usersReducer} from './users-reducer';
 import {friendsReducer} from './friends-reducer';
 import {partnersReducer} from './partners-reducer';
+import {authReducer} from './auth-reducer';
 
 let rootReducer = combineReducers(
     {
@@ -11,7 +12,8 @@ let rootReducer = combineReducers(
         messagesPage: messagesReducer,
         usersPage: usersReducer,
         friendsData: friendsReducer,
-        partnersData: partnersReducer
+        partnersData: partnersReducer,
+        authData: authReducer
     }
 )
 

@@ -1,7 +1,8 @@
-import {profileReducer, ProfileReducerType} from './profile-reducer';
-import {messagesReducer, MessagesReducerType} from './messages-reducer';
+import {profileReducer, ProfileReducerActionsType} from './profile-reducer';
+import {messagesReducer, MessagesReducerActionsType} from './messages-reducer';
 import {AppStateType} from './redux-store';
-import {UsersReducerType} from './users-reducer';
+import {UsersReducerActionsType} from './users-reducer';
+import {AuthReducerActionsType} from './auth-reducer';
 
 export let store: StoreType = {
     _state: {
@@ -23,7 +24,12 @@ export let store: StoreType = {
             isFetching: true
         },
         friendsData: [],
-        partnersData: []
+        partnersData: [],
+        authData: {
+            login: null,
+            email: null,
+            id: null
+        }
     },
     getState() {
         return this._state
@@ -70,6 +76,8 @@ export type FriendType = {
     name: string
 }
 export type StateType = {
+    authData: AuthType
+
     messagesPage: MessagesPageType
     profilePage: ProfilePageType
     usersPage: UsersPageType
@@ -100,6 +108,12 @@ export type StoreType = {
     subscribe: (callback: (state: StateType) => void) => void
     dispatch: (action: ActionsType) => void
 }
+export type AuthType = {
+    id: null | number
+    email: null | string
+    login: null | string
+}
+
 export type ProfileType = {
     aboutMe: string;
     contacts: {
@@ -124,6 +138,7 @@ export type ProfileType = {
 
 
 export type ActionsType =
-    | MessagesReducerType
-    | ProfileReducerType
-    | UsersReducerType
+    | MessagesReducerActionsType
+    | ProfileReducerActionsType
+    | UsersReducerActionsType
+    | AuthReducerActionsType
