@@ -31,8 +31,8 @@ export const AddMessage: React.FC<AddMessagePropsType> = (props) => {
                 placeholder={'Can\'t keep something in yourself?'}/>
 
             <div className={'buttons'}>
-                <Button onClick={clearMessage} buttonName={'Clear message'}/>
-                <Button onClick={addMessage} buttonName={'Add message'}/>
+                <Button disabled={false} onClick={clearMessage} buttonName={'Clear message'}/>
+                <Button disabled={false} onClick={addMessage} buttonName={'Add message'}/>
             </div>
 
         </StyledAddPost>

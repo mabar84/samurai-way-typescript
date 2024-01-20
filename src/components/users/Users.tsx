@@ -24,7 +24,7 @@ export const Users: React.FC<UsersPropsType> = (props) => {
     return <>
         {props.isFetching ? <Preloader/> : null}
         <div className={s.paginator}>
-            {pages.map((p) => <Button key={p} buttonName={p.toString()}
+            {pages.map((p) => <Button key={p} buttonName={p.toString()} disabled={false}
                                       className={props.currentPage === p ? s.selectedPage : ''}
                                       onClick={() => {
                                           props.onPageChanged(p)

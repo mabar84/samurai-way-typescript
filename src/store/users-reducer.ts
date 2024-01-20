@@ -5,7 +5,8 @@ const initialState: UsersPageType = {
     pageSize: 100,
     totalUsersCount: 1,
     currentPage: 1,
-    isFetching: true
+    isFetching: true,
+    followingId: ''
 }
 
 export const usersReducer = (state: UsersPageType = initialState, action: ActionsType): UsersPageType => {
@@ -32,6 +33,8 @@ export const usersReducer = (state: UsersPageType = initialState, action: Action
             return {...state, currentPage: action.currentPage}
         case 'TOGGLE-IS-FETCHING':
             return {...state, isFetching: action.isFetching}
+        case 'SET-FOLLOWING-ID':
+            return {...state, followingId: action.id}
         default:
             return state
     }
@@ -44,6 +47,7 @@ export type UsersReducerActionsType =
     | ReturnType<typeof setCurrentPage>
     | ReturnType<typeof setTotalUsersCount>
     | ReturnType<typeof toggleIsFetching>
+    | ReturnType<typeof setFollowingId>
 
 export const followAC = (userId: string) => ({type: 'FOLLOW' as const, userId})
 export const unFollowAC = (userId: string) => ({type: 'UNFOLLOW' as const, userId})
@@ -51,3 +55,4 @@ export const setUsers = (users: UserType[]) => ({type: 'SET-USERS' as const, use
 export const setCurrentPage = (currentPage: number) => ({type: 'SET-CURRENT-PAGE' as const, currentPage})
 export const setTotalUsersCount = (totalCount: number) => ({type: 'SET-TOTAL-COUNT' as const, totalCount})
 export const toggleIsFetching = (isFetching: boolean) => ({type: 'TOGGLE-IS-FETCHING' as const, isFetching})
+export const setFollowingId = (id: string) => ({type: 'SET-FOLLOWING-ID' as const, id})

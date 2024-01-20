@@ -21,7 +21,8 @@ export let store: StoreType = {
             pageSize: 5,
             totalUsersCount: 25,
             currentPage: 1,
-            isFetching: true
+            isFetching: true,
+            followingId: ''
         },
         friendsData: [],
         partnersData: [],
@@ -90,6 +91,7 @@ export type UsersPageType = {
     totalUsersCount: number
     currentPage: number
     isFetching: boolean
+    followingId: string
 }
 export type ProfilePageType = {
     currentTextareaValue: string

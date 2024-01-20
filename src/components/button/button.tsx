@@ -6,6 +6,7 @@ type ButtonPropsType = {
     buttonName: string
     onClick: () => void
     className?: string
+    disabled: boolean
 }
 
 export const Button = (props: ButtonPropsType) => {
@@ -15,7 +16,7 @@ export const Button = (props: ButtonPropsType) => {
     }
 
     return (
-        <StyledButton onClick={onClickHandler} className={`styledButton ${props.className}`}>
+        <StyledButton disabled={props.disabled} onClick={onClickHandler} className={`styledButton ${props.className}`}>
             {props.buttonName}
         </StyledButton>
     );
@@ -39,6 +40,11 @@ const StyledButton = styled.button`
 
   &:active {
     transform: translateY(0);
+  }
+
+  &:disabled {
+    background-color: ${myTheme.colors.background};
+    pointer-events: none;
   }
 
 

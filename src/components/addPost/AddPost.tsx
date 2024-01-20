@@ -33,8 +33,8 @@ export const AddPost: React.FC<AddPostPropsType> = (props) => {
                 placeholder={'Can\'t keep something in yourself?'}/>
 
             <div className={'buttons'}>
-                <Button onClick={clearPost} buttonName={'Clear post'}/>
-                <Button onClick={addPost} buttonName={'Add post'}/>
+                <Button disabled={false} onClick={clearPost} buttonName={'Clear post'}/>
+                <Button disabled={false} onClick={addPost} buttonName={'Add post'}/>
             </div>
 
         </StyledAddPost>
