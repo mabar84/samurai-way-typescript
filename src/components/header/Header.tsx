@@ -15,7 +15,6 @@ export const Header = () => {
     useEffect(() => {
         dispatch(auth())
     }, [])
-
     return (
         <StyledHeader>
             <div className="container">
@@ -29,9 +28,8 @@ export const Header = () => {
                 </div>
             </div>
         </StyledHeader>
-    );
-};
-
+    )
+}
 const StyledHeader = styled.header`
   height: 50px;
   position: sticky;
@@ -64,7 +62,4 @@ const StyledHeader = styled.header`
       margin-bottom: 30px;
     }
   }
-
-
-
-`;
+`

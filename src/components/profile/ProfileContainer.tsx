@@ -2,9 +2,8 @@ import React from 'react';
 import {Profile} from './Profile';
 import {AppStateType} from '../../store/redux-store';
 import {connect} from 'react-redux';
-import {addPost, setUserProfile, updateNewPostText} from '../../store/profile-reducer';
+import {addPost, getProfile, updateNewPostText} from '../../store/profile-reducer';
 import {PostType, ProfileType} from '../../store/store';
-import axios from 'axios';
 
 export type ProfileContainerPropsType = {
     profile: ProfileType | null
@@ -13,16 +12,12 @@ export type ProfileContainerPropsType = {
     userId: number
     addPost: () => void
     updateNewPostText: (text: string) => void
-    setUserProfile: (profile: ProfileType) => void
+    getProfile: (userId: number) => void
 }
 
 class ProfileContainer extends React.Component<ProfileContainerPropsType> {
-
     componentDidMount() {
-        axios.get(`https://social-network.samuraijs.com/api/1.0/profile/${this.props.userId}`)
-            .then(res => {
-                this.props.setUserProfile(res.data)
-            })
+        this.props.getProfile(this.props.userId)
     }
 
     render() {
@@ -39,4 +34,4 @@ const mapStateToProps = (state: AppStateType) => {
     }
 }
 
-export default connect(mapStateToProps, {addPost, updateNewPostText, setUserProfile})(ProfileContainer)
+export default connect(mapStateToProps, {addPost, updateNewPostText, getProfile})(ProfileContainer)

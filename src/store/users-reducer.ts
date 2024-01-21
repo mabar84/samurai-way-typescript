@@ -10,27 +10,22 @@ const initialState: UsersPageType = {
     isFetching: true,
     followingId: ''
 }
-
 export const usersReducer = (state: UsersPageType = initialState, action: ActionsType): UsersPageType => {
     switch (action.type) {
-        case 'FOLLOW': {
+        case 'FOLLOW':
             return {
                 ...state,
                 usersData: state.usersData.map((u) => u.id === action.userId ? {...u, followed: true} : u)
             }
-        }
-        case 'UNFOLLOW': {
+        case 'UNFOLLOW':
             return {
                 ...state,
                 usersData: state.usersData.map((u) => u.id === action.userId ? {...u, followed: false} : u)
             }
-        }
-        case 'SET-USERS': {
+        case 'SET-USERS':
             return {...state, usersData: action.users}
-        }
-        case 'SET-TOTAL-COUNT': {
+        case 'SET-TOTAL-COUNT':
             return {...state, totalUsersCount: action.totalCount}
-        }
         case 'SET-CURRENT-PAGE':
             return {...state, currentPage: action.currentPage}
         case 'TOGGLE-IS-FETCHING':
@@ -41,7 +36,6 @@ export const usersReducer = (state: UsersPageType = initialState, action: Action
             return state
     }
 }
-
 export type UsersReducerActionsType =
     | ReturnType<typeof followAC>
     | ReturnType<typeof unFollowAC>

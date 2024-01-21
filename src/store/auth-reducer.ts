@@ -7,7 +7,6 @@ const initialState: AuthType = {
     email: null,
     login: null
 }
-
 export const authReducer = (state: AuthType = initialState, action: ActionsType): AuthType => {
     switch (action.type) {
         case 'SET-USER-DATA':
@@ -16,7 +15,6 @@ export const authReducer = (state: AuthType = initialState, action: ActionsType)
             return state
     }
 }
-
 export const setUserData = (authData: AuthType) => ({type: 'SET-USER-DATA' as const, authData})
 
 export const auth = () => (dispatch: Dispatch) => {

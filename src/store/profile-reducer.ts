@@ -1,4 +1,6 @@
 import {ActionsType, ProfilePageType, ProfileType} from './store';
+import {Dispatch} from 'redux';
+import {profileAPI} from '../api/api';
 
 const initialState = {
     postsData: [
@@ -61,3 +63,10 @@ export const setUserId = (id: number) => ({type: 'SET-USER-ID' as const, id})
 
 export const updateNewPostText = (newText: string) =>
     ({type: 'UPDATE-NEW-POST-TEXT' as const, newText})
+
+export const getProfile = (userId: number) => (dispath: Dispatch) => {
+    profileAPI.getProfile(userId)
+        .then(res => {
+            dispath(setUserProfile(res.data))
+        })
+}
