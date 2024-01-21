@@ -1,4 +1,6 @@
 import {ActionsType, AuthType} from './store';
+import {Dispatch} from 'redux';
+import {authAPI} from '../api/api';
 
 const initialState: AuthType = {
     id: null,
@@ -17,4 +19,10 @@ export const authReducer = (state: AuthType = initialState, action: ActionsType)
 
 export const setUserData = (authData: AuthType) => ({type: 'SET-USER-DATA' as const, authData})
 
+export const auth = () => (dispatch: Dispatch) => {
+    authAPI.auth()
+        .then(res => {
+            dispatch(setUserData(res.data.data))
+        })
+}
 export type AuthReducerActionsType = ReturnType<typeof setUserData>

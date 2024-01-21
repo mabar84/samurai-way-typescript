@@ -13,3 +13,7 @@ export const usersAPI = {
     followUser: (id: string) => instance.post(`follow/${id}`, {}),
     unfollowUser: (id: string) => instance.delete(`follow/${id}`),
 }
+export const authAPI = {
+    auth: () => instance.get('auth/me')
+}
+
