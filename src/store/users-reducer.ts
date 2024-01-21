@@ -1,4 +1,6 @@
 import {ActionsType, UsersPageType, UserType} from './store';
+import {Dispatch} from 'redux';
+import {usersAPI} from '../api/api';
 
 const initialState: UsersPageType = {
     usersData: [],
@@ -56,3 +58,27 @@ export const setCurrentPage = (currentPage: number) => ({type: 'SET-CURRENT-PAGE
 export const setTotalUsersCount = (totalCount: number) => ({type: 'SET-TOTAL-COUNT' as const, totalCount})
 export const toggleIsFetching = (isFetching: boolean) => ({type: 'TOGGLE-IS-FETCHING' as const, isFetching})
 export const setFollowingId = (id: string) => ({type: 'SET-FOLLOWING-ID' as const, id})
+
+
+export const getUsers = (currentPage: number, pageSize: number) => (dispatch: Dispatch) => {
+
+
+    dispatch(toggleIsFetching(true))
+
+
+    usersAPI.getUsers(currentPage, pageSize)
+
+
+        .then(res => {
+            debugger
+
+            dispatch(toggleIsFetching(false))
+            dispatch(setUsers(res.data.items))
+            dispatch(setTotalUsersCount(res.data.totalCount))
+
+
+            // toggleIsFetching(false)
+            // setUsers(res.data.items)
+            // setTotalUsersCount(res.data.totalCount)
+        })
+}
