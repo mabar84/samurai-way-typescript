@@ -78,7 +78,6 @@ export const followUser = (id: string) => (dispatch: Dispatch) => {
             dispatch(setFollowingId(''))
         })
 }
-
 export const unfollowUser = (id: string) => (dispatch: Dispatch) => {
     dispatch(setFollowingId(id))
     usersAPI.unfollowUser(id)
