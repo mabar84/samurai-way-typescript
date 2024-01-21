@@ -68,4 +68,25 @@ export const getUsers = (currentPage: number, pageSize: number) => (dispatch: Di
             dispatch(setTotalUsersCount(res.data.totalCount))
         })
 }
+export const followUser = (id: string) => (dispatch: Dispatch) => {
+    dispatch(setFollowingId(id))
+    usersAPI.followUser(id)
+        .then(res => {
+            if (res.data.resultCode === 0) {
+                dispatch(followAC(id))
+            }
+            dispatch(setFollowingId(''))
+        })
+}
+
+export const unfollowUser = (id: string) => (dispatch: Dispatch) => {
+    dispatch(setFollowingId(id))
+    usersAPI.unfollowUser(id)
+        .then(res => {
+            if (res.data.resultCode === 0) {
+                dispatch(unFollowAC(id))
+            }
+            dispatch(setFollowingId(''))
+        })
+}
 
