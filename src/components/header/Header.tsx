@@ -9,8 +9,8 @@ import {AppStateType} from '../../store/redux-store';
 import {AuthType} from '../../store/store';
 
 export const Header = () => {
-    const dispatch = useDispatch()
     const userData = useSelector<AppStateType, AuthType>(state => state.authData)
+    const dispatch = useDispatch()
 
     useEffect(() => {
         dispatch(auth())

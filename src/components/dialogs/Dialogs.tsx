@@ -4,6 +4,7 @@ import {Partners} from './Partners';
 import {Messages} from './Messages';
 import {MessageType, PartnerType} from '../../store/store';
 import {AddMessage} from '../addMessage/AddMessage';
+import {Redirect} from 'react-router-dom';
 
 type DialogsPropsType = {
     messagesData: MessageType[]
@@ -11,9 +12,12 @@ type DialogsPropsType = {
     currentPostValue: string
     updateNewMessage: (text: string) => void
     sendMessageClick: () => void
+    isAuth: boolean
 }
 
 export const Dialogs: React.FC<DialogsPropsType> = (props) => {
+    if (!props.isAuth) return <Redirect to={'/login'}/>
+
     return (
         <StyledDialogs>
             <div className="grid">
@@ -27,6 +31,7 @@ export const Dialogs: React.FC<DialogsPropsType> = (props) => {
                 currentPostValue={props.currentPostValue}/>
         </StyledDialogs>
     );
+
 };
 
 const StyledDialogs = styled.div`

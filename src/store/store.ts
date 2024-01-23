@@ -1,51 +1,51 @@
-import {profileReducer, ProfileReducerActionsType} from './profile-reducer';
-import {messagesReducer, MessagesReducerActionsType} from './messages-reducer';
-import {AppStateType} from './redux-store';
+import {ProfileReducerActionsType} from './profile-reducer';
+import {MessagesReducerActionsType} from './messages-reducer';
 import {UsersReducerActionsType} from './users-reducer';
 import {AuthReducerActionsType} from './auth-reducer';
 
-export let store: StoreType = {
-    _state: {
-        messagesPage: {
-            currentTextareaValue: '',
-            messagesData: [],
-        },
-        profilePage: {
-            postsData: [],
-            currentTextareaValue: '',
-            profile: null,
-            userId: 404
-        },
-        usersPage: {
-            usersData: [],
-            pageSize: 5,
-            totalUsersCount: 25,
-            currentPage: 1,
-            isFetching: true,
-            followingId: ''
-        },
-        friendsData: [],
-        partnersData: [],
-        authData: {
-            login: null,
-            email: null,
-            id: null
-        }
-    },
-    getState() {
-        return this._state
-    },
-    _callSubscriber(state: AppStateType) {
-    },
-    subscribe(observer: (state: AppStateType) => void) {
-        this._callSubscriber = observer
-    },
-    dispatch(action: ActionsType) {
-        this._state.profilePage = profileReducer(this._state.profilePage, action)
-        this._state.messagesPage = messagesReducer(this._state.messagesPage, action)
-        this._callSubscriber(this._state)
-    }
-}
+// export let store: StoreType = {
+//     _state: {
+//         messagesPage: {
+//             currentTextareaValue: '',
+//             messagesData: [],
+//         },
+//         profilePage: {
+//             postsData: [],
+//             currentTextareaValue: '',
+//             profile: null,
+//             userId: 404
+//         },
+//         usersPage: {
+//             usersData: [],
+//             pageSize: 5,
+//             totalUsersCount: 25,
+//             currentPage: 1,
+//             isFetching: true,
+//             followingId: ''
+//         },
+//         friendsData: [],
+//         partnersData: [],
+//         authData: {
+//             login: null,
+//             email: null,
+//             id: null,
+//             isAuth:false
+//         }
+//     },
+//     getState() {
+//         return this._state
+//     },
+//     _callSubscriber(state: AppStateType) {
+//     },
+//     subscribe(observer: (state: AppStateType) => void) {
+//         this._callSubscriber = observer
+//     },
+//     dispatch(action: ActionsType) {
+//         this._state.profilePage = profileReducer(this._state.profilePage, action)
+//         this._state.messagesPage = messagesReducer(this._state.messagesPage, action)
+//         this._callSubscriber(this._state)
+//     }
+// }
 
 export type MessageType = {
     id: number
@@ -114,6 +114,7 @@ export type AuthType = {
     id: null | number
     email: null | string
     login: null | string
+    isAuth: boolean
 }
 
 export type ProfileType = {
@@ -137,7 +138,6 @@ export type ProfileType = {
         large: string;
     };
 }
-
 
 export type ActionsType =
     | MessagesReducerActionsType

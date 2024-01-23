@@ -16,7 +16,8 @@ const mapStateToProps = (state: AppStateType) => {
     return {
         partnersData: state.partnersData,
         messagesData: state.messagesPage.messagesData,
-        currentPostValue: state.messagesPage.currentTextareaValue
+        currentPostValue: state.messagesPage.currentTextareaValue,
+        isAuth: state.authData.isAuth
     }
 }
 
