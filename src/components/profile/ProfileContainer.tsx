@@ -1,10 +1,11 @@
-import React from 'react';
+import React, {ComponentType} from 'react';
 import {Profile} from './Profile';
 import {AppStateType} from '../../store/redux-store';
 import {connect} from 'react-redux';
 import {addPost, getProfile, updateNewPostText} from '../../store/profile-reducer';
 import {PostType, ProfileType} from '../../store/store';
 import {WithAuthRedirect} from '../../hoc/withAuthRedirect';
+import {compose} from 'redux';
 
 export type ProfileContainerPropsType = {
     profile: ProfileType | null
@@ -36,4 +37,8 @@ const mapStateToProps = (state: AppStateType) => {
     }
 }
 
-export default WithAuthRedirect(connect(mapStateToProps, {addPost, updateNewPostText, getProfile})(ProfileContainer))
+export default compose<ComponentType>(WithAuthRedirect, connect(mapStateToProps, {
+    addPost,
+    updateNewPostText,
+    getProfile
+}))(ProfileContainer)
