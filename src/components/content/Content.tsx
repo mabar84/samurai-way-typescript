@@ -12,7 +12,7 @@ import {Login} from '../login/Login';
 export const Content = () => {
     return (
         <StyledSection>
-            <Redirect exact from="/" to="/profile"/>
+            <Redirect exact from="/" to="/users"/>
 
             <Route path="/users" component={() =>
                 <UsersContainer/>}/>

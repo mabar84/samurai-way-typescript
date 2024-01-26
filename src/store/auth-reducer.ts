@@ -21,7 +21,6 @@ export const setUserData = (authData: AuthType) => ({type: 'SET-USER-DATA' as co
 export const auth = () => (dispatch: Dispatch) => {
     authAPI.auth()
         .then(res => {
-            console.log(res.data)
             if (res.data.resultCode === 0) {
                 dispatch(setUserData(res.data.data))
             }
