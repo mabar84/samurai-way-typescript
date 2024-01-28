@@ -27,7 +27,8 @@ const initialState = {
     ],
     currentTextareaValue: '',
     profile: null,
-    userId: 2
+    userId: 30425,
+    status: 'blabla'
 }
 
 export const profileReducer = (state: ProfilePageType = initialState, action: ActionsType): ProfilePageType => {
@@ -46,6 +47,8 @@ export const profileReducer = (state: ProfilePageType = initialState, action: Ac
             return {...state, profile: action.profile}
         case 'SET-USER-ID':
             return {...state, userId: action.id}
+        case 'SET-STATUS':
+            return {...state, status: action.status}
         default:
             return state
     }
@@ -56,10 +59,12 @@ export type ProfileReducerActionsType =
     | ReturnType<typeof addPost>
     | ReturnType<typeof setUserProfile>
     | ReturnType<typeof setUserId>
+    | ReturnType<typeof setStatus>
 
 export const addPost = () => ({type: 'ADD-POST' as const})
 export const setUserProfile = (profile: ProfileType) => ({type: 'SET-USER-PROFILE' as const, profile})
 export const setUserId = (id: number) => ({type: 'SET-USER-ID' as const, id})
+export const setStatus = (status: string) => ({type: 'SET-STATUS' as const, status})
 
 export const updateNewPostText = (newText: string) =>
     ({type: 'UPDATE-NEW-POST-TEXT' as const, newText})
@@ -68,5 +73,20 @@ export const getProfile = (userId: number) => (dispath: Dispatch) => {
     profileAPI.getProfile(userId)
         .then(res => {
             dispath(setUserProfile(res.data))
+        })
+}
+export const getStatus = (userId: number) => (dispath: Dispatch) => {
+    profileAPI.getStatus(userId)
+        .then(res => {
+            dispath(setStatus(res.data))
+        })
+}
+
+export const updateStatus = (status: string) => (dispath: Dispatch) => {
+    profileAPI.updateStatus(status)
+        .then(res => {
+            if (res.data.resultCode === 0) {
+                dispath(setStatus(res.data))
+            }
         })
 }

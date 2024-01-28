@@ -13,7 +13,7 @@ export const Profile: React.FC<ProfileContainerPropsType> = (props) => {
         <StyledProfile>
             <Image/>
             <div className="flex-container">
-                <Avatar profile={props.profile}/>
+                <Avatar status={props.status} profile={props.profile}/>
 
                 <AddPost currentPostValue={props.currentPostValue}
                          updateNewMessage={props.updateNewPostText}

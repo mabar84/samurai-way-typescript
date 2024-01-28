@@ -98,6 +98,7 @@ export type ProfilePageType = {
     postsData: PostType[]
     profile: null | ProfileType
     userId: number
+    status: string
 }
 export type MessagesPageType = {
     currentTextareaValue: string

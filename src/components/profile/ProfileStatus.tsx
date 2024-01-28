@@ -1,4 +1,6 @@
 import React, {ChangeEvent, useState} from 'react';
+import {useDispatch} from 'react-redux';
+import {updateStatus} from '../../store/profile-reducer';
 
 type ProfileStatusPropsType = {
     status: string
@@ -6,6 +8,7 @@ type ProfileStatusPropsType = {
 export const ProfileStatus = (props: ProfileStatusPropsType) => {
     const [status, setStatus] = useState(props.status)
     const [editMode, setEditMode] = useState(false)
+    const dispatch = useDispatch()
 
     const onDoubleClickHandler = () => {
         setEditMode(true)
@@ -18,12 +21,13 @@ export const ProfileStatus = (props: ProfileStatusPropsType) => {
     }
     const onBlurInputHandler = () => {
         setEditMode(false)
+        dispatch(updateStatus(status))
     }
     return (<>
         {editMode
             ? <input autoFocus value={status} onChange={onChangeInputHandler} onBlur={onBlurInputHandler}/>
             : <p onClick={onClickHandler} onDoubleClick={onDoubleClickHandler}>
-                {status ? status : 'What can i say?'}</p>
+                {status ? status : 'Some status'}</p>
         }
     </>)
 }

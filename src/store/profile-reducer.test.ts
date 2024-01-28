@@ -26,7 +26,8 @@ test('new post text should be added', () => {
         ],
         currentTextareaValue: 'Some new post',
         profile: null,
-        userId: 2
+        userId: 2,
+        status: 'blabla'
     }
     const endState = profileReducer(startState, addPost())
 

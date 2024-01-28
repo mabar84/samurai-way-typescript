@@ -16,5 +16,7 @@ export const authAPI = {
     auth: () => instance.get('auth/me')
 }
 export const profileAPI = {
-    getProfile: (userId: number) => instance.get(`profile/${userId}`)
+    getProfile: (userId: number) => instance.get(`profile/${userId}`),
+    getStatus: (userId: number) => instance.get(`profile/status/${userId}`),
+    updateStatus: (status: string) => instance.put(`profile/status`, {status})
 }
