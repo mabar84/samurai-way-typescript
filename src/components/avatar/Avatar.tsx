@@ -3,6 +3,7 @@ import {styled} from 'styled-components';
 import {myTheme} from '../../styles/Theme.styled';
 import {ProfileType} from '../../store/store';
 import {Preloader} from '../preloader/Preloader';
+import {ProfileStatus} from '../profile/ProfileStatus';
 
 type AvatarType = {
     profile: ProfileType | null
@@ -16,7 +17,7 @@ export const Avatar: React.FC<AvatarType> = (props) => {
                 ? <img src={props.profile.photos.small} alt="ava"/>
                 : <img src="https://cs6.pikabu.ru/avatars/1536/v1536759-1512667144.jpg" alt="ava"/>
             }
-            <p>{props.profile ? props.profile.aboutMe : 'What can i say?'}</p>
+            <ProfileStatus status={props.profile.aboutMe}/>
         </StyledAvatar>
     );
 };

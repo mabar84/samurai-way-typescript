@@ -12,7 +12,6 @@ export const Profile: React.FC<ProfileContainerPropsType> = (props) => {
     return (
         <StyledProfile>
             <Image/>
-            {props.profile?.aboutMe}
             <div className="flex-container">
                 <Avatar profile={props.profile}/>
 
