@@ -32,7 +32,7 @@ const StyledAvatar = styled.div`
   gap: 10px;
   align-items: center;
   flex-grow: 0;
-  width: 50%;
+  width: 100%;
 
   img {
     width: 100px;
