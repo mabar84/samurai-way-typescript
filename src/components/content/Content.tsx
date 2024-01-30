@@ -7,7 +7,7 @@ import {Friends} from '../friends/Friends';
 import {DialogsContainer} from '../dialogs/DialogsContainer';
 import UsersContainer from '../users/UsersContainer';
 import ProfileContainer from '../profile/ProfileContainer';
-import {Login} from '../login/Login';
+import Login from '../login/Login';
 
 export const Content = () => {
     return (

@@ -6,6 +6,8 @@ import {friendsReducer} from './friends-reducer';
 import {partnersReducer} from './partners-reducer';
 import {authReducer} from './auth-reducer';
 import thunk from 'redux-thunk';
+import {reducer as formReducer} from 'redux-form';
+
 
 let rootReducer = combineReducers(
     {
@@ -14,7 +16,8 @@ let rootReducer = combineReducers(
         usersPage: usersReducer,
         friendsData: friendsReducer,
         partnersData: partnersReducer,
-        authData: authReducer
+        authData: authReducer,
+        form: formReducer
     }
 )
 export type AppStateType = ReturnType<typeof rootReducer>
