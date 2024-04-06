@@ -15,21 +15,24 @@ type UsersPropsType = {
 }
 
 export const Users: React.FC<UsersPropsType> = (props) => {
-    let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize)
+    const {usersData, pageSize, totalUsersCount, currentPage, onPageChanged, isFetching} = props
+
+
+    let pagesCount = Math.ceil(totalUsersCount / pageSize)
     let pages = []
     for (let i = 1; i <= pagesCount; i++) {
         pages.push(i)
     }
 
     return <>
-        {props.isFetching ? <Preloader/> : null}
+        {isFetching ? <Preloader/> : null}
         <div className={s.paginator}>
             {pages.map((p) => <Button key={p} buttonName={p.toString()} disabled={false}
-                                      className={props.currentPage === p ? s.selectedPage : ''}
+                                      className={currentPage === p ? s.selectedPage : ''}
                                       onClick={() => {
-                                          props.onPageChanged(p)
+                                          onPageChanged(p)
                                       }}/>)}
         </div>
-        {props.usersData.map(u => <User key={u.id} user={u}/>)}
+        {usersData.map(u => <User key={u.id} user={u}/>)}
     </>;
 }
