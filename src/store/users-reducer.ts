@@ -4,7 +4,7 @@ import {usersAPI} from '../api/api';
 
 const initialState: UsersPageType = {
     usersData: [],
-    pageSize: 100,
+    pageSize: 25,
     totalUsersCount: 1,
     currentPage: 1,
     isFetching: true,
