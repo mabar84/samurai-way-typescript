@@ -41,7 +41,7 @@ const mapStateToProps = (state: AppStateType) => {
     }
 }
 
-export default compose<ComponentType>(WithAuthRedirect, connect(mapStateToProps, {
+export default compose<ComponentType>( connect(mapStateToProps, {
     addPost,
     updateNewPostText,
     getProfile,
